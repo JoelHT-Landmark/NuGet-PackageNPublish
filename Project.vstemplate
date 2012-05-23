@@ -1,0 +1,44 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>NuGet.Package'n'Publish</Name>
+    <Description>Generates a NuGet Package'n'Publish project.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>MyProject.NuGetPackage</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.jpg</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$safeprojectname$.csproj" File="Project.NuGetPackage.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$.tt">Project.NuGetPackage.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="$safeprojectname$.nuspec">Project.NuGetPackage.nuspec</ProjectItem>
+      <Folder Name="_MSBuild" TargetFolderName="_MSBuild">
+          <ProjectItem ReplaceParameters="false" TargetFileName="NuGetPackageAndPublish.targets">NuGetPackageAndPublish.targets</ProjectItem>
+	  </Folder>
+      <Folder Name="Package" TargetFolderName="Package">
+		<Folder Name="lib" TargetFolderName="lib">
+		  <Folder Name="Net40" TargetFolderName="Net40">
+		    <ProjectItem ReplaceParameters="false" TargetFileName="Net40.ReadMe.txt">Net40.ReadMe.txt</ProjectItem>
+		  </Folder>
+		  <Folder Name="SL40" TargetFolderName="SL40">
+		    <ProjectItem ReplaceParameters="false" TargetFileName="SL40.ReadMe.txt">SL40.ReadMe.txt</ProjectItem>
+		  </Folder>
+		</Folder>
+        <Folder Name="tools" TargetFolderName="tools">
+          <ProjectItem ReplaceParameters="false" TargetFileName="init.ps1">init.ps1</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="install.ps1">install.ps1</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="uninstall.ps1">uninstall.ps1</ProjectItem>
+        </Folder>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="packages.config">packages.config</ProjectItem>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

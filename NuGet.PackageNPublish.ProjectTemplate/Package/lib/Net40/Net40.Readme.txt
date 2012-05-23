@@ -1,0 +1,2 @@
+Any CopyLocal=true assemblies NOT named *.Silverlight.dll will be copied here 
+and included in the NuGet package.

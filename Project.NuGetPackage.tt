@@ -1,0 +1,45 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".nuspec" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Xml.Linq" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#
+ var sourcePath = System.IO.Path.GetDirectoryName(Host.TemplateFile);
+ var packagesDoc = System.Xml.Linq.XDocument.Load(sourcePath + "\\packages.config");
+ var packages = from p in packagesDoc.Descendants("package") select p;
+ 
+ var assemblyInfo = System.IO.File.ReadAllText(sourcePath + "\\Properties\\AssemblyInfo.cs");
+ 
+ Func<string, string> extract = (string tag) => {
+	var matcher = new System.Text.RegularExpressions.Regex("(" + tag + "\\(\")(.*)(\"\\))");
+	var value = matcher.Match(assemblyInfo).Groups[2]; 
+	return value.ToString();
+	};
+	
+var fileVer = extract("AssemblyFileVersion");
+var description = extract("AssemblyDescription");
+#>
+<?xml version="1.0" encoding="utf-8" ?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>$safeprojectname$</id>
+    <version><#= fileVer #></version>
+    <title>$safeprojectname$</title>
+    <authors>$username$</authors>
+    <summary></summary>
+    <description><#= description #></description>
+    <language>en-us</language>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <dependencies>
+    <# foreach (var package in packages) { #>
+    <dependency <#= package.Attribute("id") #> <#= package.Attribute("version") #> />
+    <# } #>
+    </dependencies>
+  </metadata>
+  <files>
+      <file src="lib\**\*.dll" target="lib" />
+      <file src="lib\**\*.pdb" target="lib" />
+  </files>
+</package>
