@@ -40,17 +40,36 @@
     <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="NuGet.PackageNPublish.Src\packages.config" />
+    <None Include="NuGet.PackageNPublish.Src\Project.NuGetPackage.nuspec" />
+    <None Include="NuGet.PackageNPublish.Src\Project.NuGetPackage.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Project.NuGetPackage1.nuspec</LastGenOutput>
+    </None>
+    <None Include="NuGet.PackageNPublish.Src\Project.NuGetPackage1.nuspec">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Project.NuGetPackage.tt</DependentUpon>
+    </None>
+    <None Include="NuGet.PackageNPublish.Src\Properties\AssemblyInfo.cs" />
+    <None Include="NuGet.PackageNPublish.Src\Project.NuGetPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ProjectTemplates\NuGet.PackageNPublish.zip">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
+    <None Include="NuGet.PackageNPublish.Src\Package\lib\Net40\Net40.Readme.txt" />
+    <None Include="NuGet.PackageNPublish.Src\Package\lib\SL40\SL40.Readme.txt" />
+    <None Include="NuGet.PackageNPublish.Src\Project.NuGetPackage.csproj" />
+    <None Include="NuGet.PackageNPublish.Src\Project.vstemplate" />
+    <None Include="NuGet.PackageNPublish.Src\__TemplateIcon.jpg" />
+    <Content Include="ProjectTemplates\NuGet.PackageNPublish.zip" />
     <Content Include="__TemplateIcon.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <None Include="NuGet.PackageNPublish.Src\Package\tools\init.ps1" />
+    <None Include="NuGet.PackageNPublish.Src\Package\tools\install.ps1" />
+    <None Include="NuGet.PackageNPublish.Src\Package\tools\uninstall.ps1" />
+    <None Include="NuGet.PackageNPublish.Src\_MSBuild\NuGetPackageAndPublish.targets" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
@@ -61,8 +80,16 @@
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>pushd "$(ProjectDir)NuGet.PackageNPublish.Src"
+"$(SolutionDir)Tools\zip.exe" -r "$(ProjectDir)ProjectTemplates\NuGet.PackageNPublish.zip" *.*
+popd</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
