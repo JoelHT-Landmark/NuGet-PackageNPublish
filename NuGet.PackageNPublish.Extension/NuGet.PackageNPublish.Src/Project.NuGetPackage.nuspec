@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <id>Landmark.Fundamentals</id>
-    <version>0.0.1</version>
-    <title>Landmark Fundamentals Library</title>
-    <authors>Landmark Information Group Ltd</authors>
-    <summary>Fundamentals library for all use in Landmark software projects</summary>
-    <description>
-        This library includes common frameworks and helpers such as Logging, etc.
-    </description>
+    <id>$safeprojectname$</id>
+    <version>0.5.0.0</version>
+    <title>$safeprojectname$</title>
+    <authors>$username$</authors>
+    <summary></summary>
+    <description>$safeprojectname$</description>
     <language>en-us</language>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
+        <dependency id="NuGet.Build" version="0.24" />
         </dependencies>
   </metadata>
   <files>

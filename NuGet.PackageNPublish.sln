@@ -8,6 +8,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{31F89F4B
 		zip_license.html = zip_license.html
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{231AFD5D-678C-44A0-A8B1-8CD5A0717269}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\nuget.exe = .nuget\nuget.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.PackageNPublish.NuGetPackage", "NuGet.PackageNPublish.NuGetPackage\NuGet.PackageNPublish.NuGetPackage.csproj", "{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +27,10 @@ Global
 		{86D02EDB-2F2A-4FA6-B8D2-A26631D0BE2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86D02EDB-2F2A-4FA6-B8D2-A26631D0BE2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86D02EDB-2F2A-4FA6-B8D2-A26631D0BE2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -41,15 +41,13 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="NuGet.PackageNPublish.Src\packages.config" />
-    <None Include="NuGet.PackageNPublish.Src\Project.NuGetPackage.nuspec" />
-    <None Include="NuGet.PackageNPublish.Src\Project.NuGetPackage.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Project.NuGetPackage1.nuspec</LastGenOutput>
-    </None>
-    <None Include="NuGet.PackageNPublish.Src\Project.NuGetPackage1.nuspec">
+    <None Include="NuGet.PackageNPublish.Src\Project.NuGetPackage.nuspec">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Project.NuGetPackage.tt</DependentUpon>
+    </None>
+    <None Include="NuGet.PackageNPublish.Src\Project.NuGetPackage.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Project.NuGetPackage.nuspec</LastGenOutput>
     </None>
     <None Include="NuGet.PackageNPublish.Src\Properties\AssemblyInfo.cs" />
     <None Include="NuGet.PackageNPublish.Src\Project.NuGetPackage.cs" />
