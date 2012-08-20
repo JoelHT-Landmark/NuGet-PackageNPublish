@@ -47,6 +47,8 @@ Lots!
 
 Fork it... Fix it... Generate Pull requests... Use it!
 
+For general chat about the NuGet.PackageNPublish tooling, there's also the JabbR channel - http://jabbr.net/#/rooms/NuGetPackageNPublish
+
 ## Thanks
 
 Thanks have to go to my company, Landmark Information Group (http://www.landmark.co.uk / @LandmarkUK) for allowing this
