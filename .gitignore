@@ -119,3 +119,5 @@ UpgradeLog*.XML
 
 # NuGet
 packages/
+
+.DS_Store
