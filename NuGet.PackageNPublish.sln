@@ -1,8 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.PackageNPublish.Extension", "NuGet.PackageNPublish.Extension\NuGet.PackageNPublish.Extension.csproj", "{86D02EDB-2F2A-4FA6-B8D2-A26631D0BE2E}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{31F89F4B-36CF-4E9D-9BD2-89CA8314170E}"
 	ProjectSection(SolutionItems) = preProject
 		zip_license.html = zip_license.html
@@ -14,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{231AFD
 		.nuget\nuget.exe = .nuget\nuget.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.PackageNPublish.Extension", "NuGet.PackageNPublish.Extension\NuGet.PackageNPublish.Extension.csproj", "{86D02EDB-2F2A-4FA6-B8D2-A26631D0BE2E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.PackageNPublish.NuGetPackage", "NuGet.PackageNPublish.NuGetPackage\NuGet.PackageNPublish.NuGetPackage.csproj", "{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}"
 EndProject

@@ -14,7 +14,8 @@
     <PackagesConfig Condition="$(PackagesConfig) == '' Or $(PackagesConfig) == '*Undefined*'">$([System.IO.Path]::Combine($(ProjectDir), "packages.config"))</PackagesConfig>
     <PackagesDir Condition="$(PackagesDir) == '' Or $(PackagesDir) == '*Undefined*'">$([System.IO.Path]::Combine($(SolutionDir), "packages"))</PackagesDir>
 
-    <TTGenPath Condition="$(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*'">$(MSBuildExtensionsPath)\..\Common Files\Microsoft Shared\TextTemplating\10.0\TextTransform.exe</TTGenPath>
+    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath)\..\Common Files\Microsoft Shared\TextTemplating\10.0\TextTransform.exe'))">$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\TextTemplating\10.0\TextTransform.exe</TTGenPath>
+    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\TextTemplating\11.0\TextTransform.exe'))">$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\TextTemplating\11.0\TextTransform.exe</TTGenPath>
     <TFPath Condition="$(TFPath) == '' Or $(NuGetToolsPathTFPath) == '*Undefined*'">$(MSBuildExtensionsPath32)\..\Microsoft Visual Studio 10.0\Common7\IDE\tf.exe</TFPath>
 
     <NuGetPackageName>$(ProjectDir)$(AssemblyName.Replace(".NuGetPackage", ""))</NuGetPackageName>
@@ -62,7 +63,7 @@
       <!-- Raise an error if we're unable to locate nuget.exe  -->
       <Error Condition="!Exists('$(NuGetExePath)') and ($(CreateNuGetPackage) == 'true' or $(PublishNuGetPackage) == 'true')" Text="Unable to locate '$(NuGetExePath)'" />
       <Error Condition="!Exists('$(TTGenPath)') and $(RegenerateNuSpecFiles) == 'true'" Text="Unable to locate '$(TTGenPath)'" />
-      <Error Condition="!Exists('$(TFPath)') and $(RegenerateNuSpecFiles) == 'true'" Text="Unable to locate '$(TFPath)'" />
+      <Message Condition="!Exists('$(TFPath)') and $(RegenerateNuSpecFiles) == 'true'" Text="Unable to locate '$(TFPath)'" />
     </Target>
 
     <!-- Get the version info from the assembly to use as the version number of the assembly -->
@@ -107,11 +108,11 @@
     </Target>
 
   <Target Name="CheckOutNuSpecFiles" DependsOnTargets="CheckNuGetPackageAndPublishPrerequisites" Condition="@(NuSpecFiles) != '' and Exists('$(TFPath)') and $(RegenerateNuSpecFiles) == 'true'">
-    <Exec ContinueOnError="true" Command="&quot;$(TFPath)&quot; checkout &quot;%(NuSpecFiles.FullPath)&quot;" Condition="$(SccProvider) == 'SAK'" />
-	<Exec ContinueOnError="true" Command="attrib -r &quot;%(NuSpecFiles.FullPath)&quot;" />
+    <Exec ContinueOnError="true" Command="&quot;$(TFPath)&quot; checkout &quot;%(NuSpecFiles.FullPath)&quot;" Condition="($(SccProvider) == 'SAK)" />
   </Target>
   
   <Target Name="GenerateNuSpecFiles" DependsOnTargets="CheckNuGetPackageAndPublishPrerequisites;CheckOutNuSpecFiles" Condition="@(NuSpecTemplateFiles) != '' and Exists('$(TTGenPath)') and $(RegenerateNuSpecFiles) == 'true'">
+    <Exec ContinueOnError="true" Command="attrib -r &quot;%(NuSpecFiles.FullPath)&quot;" />
     <Exec Command="&quot;$(TTGenPath)&quot; &quot;%(NuSpecTemplateFiles.FullPath)&quot;" />
   </Target>
   

@@ -11,6 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
         <dependency id="NuGet.Build" version="0.24" />
+        <dependency id="NuGet.PackageNPublish" version="0.5.1" />
         </dependencies>
   </metadata>
   <files>
