@@ -3,13 +3,13 @@
   <Identifier Id="NuGet.PackageNPublish.Extension..e7089ac7-835c-4892-a903-d0f3f6d60383">
     <Name>NuGet.PackageNPublish.Extension</Name>
     <Author>Joel Hammond-Turner</Author>
-    <Version>0.5.1</Version>
+    <Version>0.5.5</Version>
     <Description xml:space="preserve">NuGet Packaging project template and targets file to allow easier Package'n'Publish integration with TFS (or other CI) builds.
 </Description>
     <Locale>1033</Locale>
     <MoreInfoUrl>http://github.com/JoelHT-Landmark/NuGet-PackageNPublish</MoreInfoUrl>
     <License>License.txt</License>
-    <GettingStartedGuide>http://github.com/JoelHT-Landmark/NuGet-PackageNPublish/GettingStarted.txt</GettingStartedGuide>
+    <GettingStartedGuide>http://github.com/JoelHT-Landmark/NuGet-PackageNPublish/ReadMe.md</GettingStartedGuide>
     <Icon>__TemplateIcon.jpg</Icon>
     <SupportedProducts>
       <VisualStudio Version="10.0">
@@ -18,8 +18,14 @@
         <Edition>Pro</Edition>
         <Edition>VCSExpress</Edition>
       </VisualStudio>
+      <VisualStudio Version="11.0">
+        <Edition>Ultimate</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Pro</Edition>
+        <Edition>VCSExpress</Edition>
+      </VisualStudio>
     </SupportedProducts>
-    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.0" />
+    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.5" />
   </Identifier>
   <References />
   <Content />
