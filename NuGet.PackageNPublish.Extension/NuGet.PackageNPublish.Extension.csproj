@@ -67,7 +67,10 @@
     <None Include="NuGet.PackageNPublish.Src\Project.NuGetPackage.csproj" />
     <None Include="NuGet.PackageNPublish.Src\Project.vstemplate" />
     <None Include="NuGet.PackageNPublish.Src\__TemplateIcon.jpg" />
-    <Content Include="ProjectTemplates\NuGet.PackageNPublish.zip" />
+    <Content Include="ProjectTemplates\NuGet.PackageNPublish.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="__TemplateIcon.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>

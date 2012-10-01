@@ -1,32 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
-  <Identifier Id="NuGet.PackageNPublish.Extension..e7089ac7-835c-4892-a903-d0f3f6d60383">
-    <Name>NuGet.PackageNPublish.Extension</Name>
-    <Author>Joel Hammond-Turner</Author>
-    <Version>0.5.5</Version>
-    <Description xml:space="preserve">NuGet Packaging project template and targets file to allow easier Package'n'Publish integration with TFS (or other CI) builds.
-</Description>
-    <Locale>1033</Locale>
-    <MoreInfoUrl>http://github.com/JoelHT-Landmark/NuGet-PackageNPublish</MoreInfoUrl>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="NuGet.PackageNPublish.Extension..e7089ac7-835c-4892-a903-d0f3f6d60383" Version="0.6" Language="en-US" Publisher="Joel Hammond-Turner" />
+    <DisplayName>NuGet.PackageNPublish.extension</DisplayName>
+    <Description>
+      This Visual Studio extension (VISX) contains Project templates and a packaging MSBuild targets file to allow easier Package'n'Publish integration with TFS (or other CI) builds.
+
+      The key to this integration is that the .nuspec file is generated from the project AssemblyInfo.cs file and the packages.config file automatically - so standard versioning techniques will work perfectly with it.
+
+      It was presented at Developer! Developer! Developer! South West 4 (http://www.dddsouthwest.com) on 26th May 2012
+
+      Source code for the project can be found at https://github.com/JoelHT-Landmark/NuGet-PackageNPublish.
+    </Description>
+    <MoreInfo>https://github.com/JoelHT-Landmark/NuGet-PackageNPublish</MoreInfo>
     <License>License.txt</License>
-    <GettingStartedGuide>http://github.com/JoelHT-Landmark/NuGet-PackageNPublish/ReadMe.md</GettingStartedGuide>
     <Icon>__TemplateIcon.jpg</Icon>
-    <SupportedProducts>
-      <VisualStudio Version="10.0">
-        <Edition>Ultimate</Edition>
-        <Edition>Premium</Edition>
-        <Edition>Pro</Edition>
-        <Edition>VCSExpress</Edition>
-      </VisualStudio>
-      <VisualStudio Version="11.0">
-        <Edition>Ultimate</Edition>
-        <Edition>Premium</Edition>
-        <Edition>Pro</Edition>
-        <Edition>VCSExpress</Edition>
-      </VisualStudio>
-    </SupportedProducts>
-    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.5" />
-  </Identifier>
-  <References />
-  <Content />
-</Vsix>
+  </Metadata>
+  <Installation AllUsers="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[10.0,12.0)" />
+    <InstallationTarget Version="[10.0,12.0)" Id="Microsoft.VisualStudio.Ultimate" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.0,4.5)" />
+    <Dependency d:Source="Installed" Id="NuPackToolsVsix.Microsoft.67e54e40-0ae3-42c5-a949-fddf5739e7a5" DisplayName="NuGet Package Manager" Version="[2.0.30625.9003,3.0)" d:InstallSource="Download" Location="http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\NuGet.PackageNPublish.zip" />
+  </Assets>
+</PackageManifest>
