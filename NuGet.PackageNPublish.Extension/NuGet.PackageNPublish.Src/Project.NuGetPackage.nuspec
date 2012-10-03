@@ -17,5 +17,7 @@
   <files>
       <file src="lib\**\*.dll" target="lib" />
       <file src="lib\**\*.pdb" target="lib" />
+	  <file src="tools\**\*.*" target="tools" />
+	  <file src="content\**\*.*" target="content" />
   </files>
 </package>
