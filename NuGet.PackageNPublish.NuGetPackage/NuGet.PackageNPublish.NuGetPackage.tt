@@ -28,7 +28,7 @@ var description = extract("AssemblyDescription");
     <id><#= packageId #></id>
     <version><#= fileVer #></version>
     <title><#= packageId #></title>
-    <authors>joel</authors>
+    <authors>Joel Hammond-Turner</authors>
     <summary></summary>
     <description><#= description #></description>
     <language>en-us</language>
@@ -42,6 +42,6 @@ var description = extract("AssemblyDescription");
   <files>
       <file src="lib\**\*.dll" target="lib" />
       <file src="lib\**\*.pdb" target="lib" />
-	  <file src="content\**" target="content" />
+	  <file src="content\**" target="content" exclude="Content.Readme.txt" />
   </files>
 </package>

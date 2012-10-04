@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{B3D6DB16-53B7-409E-9C25-C71AA30E2003}</ProjectGuid>
+    <ProjectGuid>{86D02EDB-2F2A-4FA6-B8D2-A26631D0BE2E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NuGet.PackageNPublish.Extension</RootNamespace>
-    <AssemblyName>NuGet.PackageNPublish.Extension</AssemblyName>
+    <RootNamespace>NuGet.PackageNPublish.VS2012.Extension</RootNamespace>
+    <AssemblyName>NuGet.PackageNPublish.VS2012.Extension</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="NuGet.PackageNPublish.VS2012.Extension..7C1F390F-DB40-4512-A367-1BCEF5345F41" Version="0.7.0.0" Language="en-US" Publisher="Joel Hammond-Turner" />
+    <DisplayName>NuGet.PackageNPublish.VS2012.Extension</DisplayName>
+    <Description xml:space="preserve">      NuGet Packag'n'Publish project template &amp;amp; tooling for VS2010 &amp;amp; VS2012.
+</Description>
+    <MoreInfo>https://github.com/JoelHT-Landmark/NuGet-PackageNPublish</MoreInfo>
+    <License>License.txt</License>
+    <Icon>__TemplateIcon.jpg</Icon>
+  </Metadata>
+  <Installation AllUsers="true">
+    <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.Pro" />
+    <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.Ultimate" />
+    <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.Premium" />
+    <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.VSWinExpress" />
+    <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.VSWinDesktopExpress" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.0,4.5)" />
+    <Dependency d:Source="Installed" Id="NuPackToolsVsix.Microsoft.67e54e40-0ae3-42c5-a949-fddf5739e7a5" DisplayName="NuGet Package Manager" Version="[2.0.30625.9003,3.0)" d:InstallSource="Download" Location="http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\NuGet.PackageNPublish.zip" />
+  </Assets>
+</PackageManifest>

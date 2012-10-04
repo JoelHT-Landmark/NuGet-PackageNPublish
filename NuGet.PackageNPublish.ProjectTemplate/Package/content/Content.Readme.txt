@@ -1,0 +1,1 @@
+This folder is for content that you want to inject into the target project when your NuGet package is installed.

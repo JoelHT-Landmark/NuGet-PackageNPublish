@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!--NuGetPackageAndPublish.targets v0.6.0.1 - See https://github.com/JoelHT-Landmark/NuGet-PackageNPublish for more information -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   
   <PropertyGroup>
@@ -122,7 +123,7 @@
     </Target>
 
   <Target Name="CheckOutNuSpecFiles" DependsOnTargets="CheckNuGetPackageAndPublishPrerequisites" Condition="@(NuSpecFiles) != '' and Exists('$(TFPath)') and $(RegenerateNuSpecFiles) == 'true'">
-    <Exec ContinueOnError="true" Command="&quot;$(TFPath)&quot; checkout &quot;%(NuSpecFiles.FullPath)&quot;" Condition="($(SccProvider) == 'SAK)" />
+    <Exec ContinueOnError="true" Command="&quot;$(TFPath)&quot; checkout &quot;%(NuSpecFiles.FullPath)&quot;" Condition="($(SccProvider) == 'SAK')" />
   </Target>
   
   <Target Name="GenerateNuSpecFiles" DependsOnTargets="CheckNuGetPackageAndPublishPrerequisites;CheckOutNuSpecFiles" Condition="@(NuSpecTemplateFiles) != '' and Exists('$(TTGenPath)') and $(RegenerateNuSpecFiles) == 'true'">
@@ -137,9 +138,9 @@
     <Exec Command="&quot;$(NuGetExePath)&quot; pack &quot;$(ProjectDir)$(AssemblyName).nuspec&quot; -Symbols -BasePath &quot;$(ProjectDir)Package&quot; -Verbose -Exclude &quot;**\$(AssemblyName).dll;**\$(AssemblyName).pdb&quot;" Condition="$(CreateSymbolPackage) == 'True'" />
   </Target>
 
-  <Target Name="PublishNuGetPackage" DependsOnTargets="CreateNuGetPackage">
+  <Target Name="PublishNuGetPackage" DependsOnTargets="CreateNuGetPackage" Condition="$(PublishNuGetPackage) == 'True'">
     <ItemGroup>
-      <NuPkgFiles Include="*.nupkg" />
+      <NuPkgFiles Include="*.nupkg" Exclude="*.Symbols.nupkg" />
     </ItemGroup>
     
     <Exec Command="&quot;$(NuGetExePath)&quot; push &quot;@(NuPkgFiles)&quot; -s $(PublishNuGetPackageTarget) &quot;$(PublishNuGetPackageTargetKey)&quot;" />
