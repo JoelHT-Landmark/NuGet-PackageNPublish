@@ -7,8 +7,8 @@ It was presented at Developer! Developer! Developer! South West 4 (http://www.dd
 
 ## Requirements
 
-- Visual Studio 2010 SP1.
-- Visual Studio 2010 SP1 SDK.
+- Visual Studio 2012 SP1.
+- Visual Studio 2012 SP1 SDK.
 - NuGet Package Manager 1.8 or above.
 
 ## How to create a NuGetPackage using the NuGet.Package'n'Publish extension
@@ -28,13 +28,19 @@ It was presented at Developer! Developer! Developer! South West 4 (http://www.dd
 - Set the **AssemblyTitle**, **AssemblyFileVersion** and **AssemblyDescription** in **Properties\AssemblyInfo.cs**
 - Build the solution
 
-- You now have a NuGet package (.npkg file) built in your project directory!
+- You now have NuGet (.npkg) and a Symbols (.symbols.nupkg) packages built in your project directory!
 
 ## How to publish a package using the NuGet.Package'n'Publish extension
 
-- Build your solution with the **/t:Publish** msbuild switch
+- Build your solution with the **/p:PublishNuGetPackage=true** msbuild switch
  - To change the target repository from the default (http://nuget.org) use the **/p:PublishNuGetPackageTarget="http://myrepo.org"** switch
  - If you've not cached the API key for your custom repository, use the **/p:PublishNuGetPackageTargetKey="MySecretAPIKey"** switch
+
+## How to publish a Symbols package using the NuGet.Package'n'Publish extension
+
+- Build your solution with the **/p:PublishSymbolPackage=true** msbuild switch
+ - To change the target repository from the default (http://symbolsource.org) use the **/p:PublishSymbolPackageTarget="http://mysymbolserver.org"** switch
+ - If you've not cached the API key for your custom repository, use the **/p:PublishSymbolPackageTargetKey="MySecretAPIKey"** switch
 
 ## Still to do
 
