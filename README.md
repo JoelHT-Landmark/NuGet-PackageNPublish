@@ -3,7 +3,8 @@
 This project creates a Visual Studio extension (VISX) containing Project templates and a packaging MSBuild targets
 file to allow easier Package&#39;n&#39;Publish integration with TFS (or other CI) builds.
 
-It was presented at Developer! Developer! Developer! South West 4 (http://www.dddsouthwest.com) on 26th May 2012.
+It was presented at Developer! Developer! Developer! South West 4 (http://www.dddsouthwest.com) on 26th May 2012, and
+in an updated form at DDDNorth 2 on 13th October 2012.
 
 ## Requirements
 
@@ -11,7 +12,12 @@ It was presented at Developer! Developer! Developer! South West 4 (http://www.dd
 - Visual Studio 2012 SP1 SDK.
 - NuGet Package Manager 1.8 or above.
 
-## How to create a NuGetPackage using the NuGet.Package'n'Publish extension
+## Getting Started
+
+There's a handy screencast demonstrating how to get started on YouTube:
+- http://www.youtube.com/watch?v=R6e4kV5dfIQ
+
+### How to create a NuGetPackage using the NuGet.Package'n'Publish extension
 
 - Install the extension into Visual Studio 
  - EITHER from a pre-built .visx file
@@ -30,13 +36,13 @@ It was presented at Developer! Developer! Developer! South West 4 (http://www.dd
 
 - You now have NuGet (.npkg) and a Symbols (.symbols.nupkg) packages built in your project directory!
 
-## How to publish a package using the NuGet.Package'n'Publish extension
+### How to publish a package using the NuGet.Package'n'Publish extension
 
 - Build your solution with the **/p:PublishNuGetPackage=true** msbuild switch
  - To change the target repository from the default (http://nuget.org) use the **/p:PublishNuGetPackageTarget="http://myrepo.org"** switch
  - If you've not cached the API key for your custom repository, use the **/p:PublishNuGetPackageTargetKey="MySecretAPIKey"** switch
 
-## How to publish a Symbols package using the NuGet.Package'n'Publish extension
+### How to publish a Symbols package using the NuGet.Package'n'Publish extension
 
 - Build your solution with the **/p:PublishSymbolPackage=true** msbuild switch
  - To change the target repository from the default (http://symbolsource.org) use the **/p:PublishSymbolPackageTarget="http://mysymbolserver.org"** switch
