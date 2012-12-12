@@ -111,8 +111,8 @@
     <!-- Copies the assemblies and symbol files we're packaging into the correct locations-->
     <Target Name="CopyAssembliesToLibDirectories">
       <ItemGroup>
-        <Net40Assemblies Include="$(CopySourceFolder)\*.dll" Exclude="$(CopySourceFolder)\*.Silverlight.dll;$(CopySourceFolder)\*.Tests.dll" />
-        <Net40Symbols Include="$(CopySourceFolder)\*.pdb" Exclude="$(CopySourceFolder)\*.Silverlight.pdb;$(CopySourceFolder)\*.Tests.pdb" />
+        <Net40Assemblies Include="$(CopySourceFolder)\*.dll" Exclude="$(CopySourceFolder)\*.Silverlight.dll;$(CopySourceFolder)\*.Tests.dll;$(CopySourceFolder)\*.mm.dll" />
+        <Net40Symbols Include="$(CopySourceFolder)\*.pdb" Exclude="$(CopySourceFolder)\*.Silverlight.pdb;$(CopySourceFolder)\*.Tests.pdb;$(CopySourceFolder)\*.mm.pdb" />
         <SL40Assemblies Include="$(CopySourceFolder)\*.Silverlight.dll" />
         <SL40Symbols Include="$(CopySourceFolder)\*.Silverlight.pdb" />
       </ItemGroup>
