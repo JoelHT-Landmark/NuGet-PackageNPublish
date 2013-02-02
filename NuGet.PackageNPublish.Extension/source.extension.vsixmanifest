@@ -20,7 +20,7 @@
     <Locale>1033</Locale>
     <MoreInfoUrl>http://github.com/JoelHT-Landmark/NuGet-PackageNPublish</MoreInfoUrl>
     <License>License.txt</License>
-    <GettingStartedGuide>http://github.com/JoelHT-Landmark/NuGet-PackageNPublish/ReadMe.md</GettingStartedGuide>
+    <GettingStartedGuide>https://github.com/JoelHT-Landmark/NuGet-PackageNPublish/blob/master/README.md</GettingStartedGuide>
     <Icon>__TemplateIcon.jpg</Icon>
     <SupportedProducts>
       <VisualStudio Version="10.0">
