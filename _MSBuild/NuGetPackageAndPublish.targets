@@ -14,7 +14,8 @@
     <PackagesConfig Condition="$(PackagesConfig) == '' Or $(PackagesConfig) == '*Undefined*'">$([System.IO.Path]::Combine($(ProjectDir), "packages.config"))</PackagesConfig>
     <PackagesDir Condition="$(PackagesDir) == '' Or $(PackagesDir) == '*Undefined*'">$([System.IO.Path]::Combine($(SolutionDir), "packages"))</PackagesDir>
 
-    <TTGenPath Condition="$(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*'">$(MSBuildExtensionsPath)\..\Common Files\Microsoft Shared\TextTemplating\10.0\TextTransform.exe</TTGenPath>
+    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(CommonProgramFiles(x86))\Microsoft Shared\TextTemplating\10.0\TextTransform.exe'))">$(CommonProgramFiles(x86))\Microsoft Shared\TextTemplating\10.0\TextTransform.exe</TTGenPath>
+    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(CommonProgramFiles)\Microsoft Shared\TextTemplating\10.0\TextTransform.exe'))">$(CommonProgramFiles)\Microsoft Shared\TextTemplating\10.0\TextTransform.exe</TTGenPath>
     <TFPath Condition="$(TFPath) == '' Or $(NuGetToolsPathTFPath) == '*Undefined*'">$(MSBuildExtensionsPath32)\..\Microsoft Visual Studio 10.0\Common7\IDE\tf.exe</TFPath>
 
     <NuGetPackageName>$(ProjectDir)$(AssemblyName.Replace(".NuGetPackage", ""))</NuGetPackageName>
