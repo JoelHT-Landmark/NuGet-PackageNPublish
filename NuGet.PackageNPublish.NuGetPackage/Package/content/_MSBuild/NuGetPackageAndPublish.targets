@@ -76,55 +76,6 @@
   </Choose>
 
   <!-- Check all the pre-requisites are in place -->
-<<<<<<< HEAD
-    <Target Name="CheckNuGetPackageAndPublishPrerequisites">
-      <!-- Raise an error if we're unable to locate nuget.exe  -->
-      <Error Condition="!Exists('$(NuGetExePath)') and ($(CreateNuGetPackage) == 'true' or $(PublishNuGetPackage) == 'true')" Text="Unable to locate '$(NuGetExePath)'" />
-      <Error Condition="!Exists('$(TTGenPath)') and $(RegenerateNuSpecFiles) == 'true'" Text="Unable to locate '$(TTGenPath)'" />
-      <Message Condition="!Exists('$(TFPath)') and $(RegenerateNuSpecFiles) == 'true'" Text="Unable to locate '$(TFPath)'" />
-    </Target>
-
-    <!-- Get the version info from the assembly to use as the version number of the assembly -->
-    <Target Name="ExtractVersionInfo">      
-      <GetAssemblyIdentity AssemblyFiles="$(IntermediateOutputPath)\$(AssemblyName).dll">
-        <Output TaskParameter="Assemblies" ItemName="MyAssembly" />
-      </GetAssemblyIdentity>
-    </Target>
-
-    <!-- write the version info out to an xml file for use by powershell scrips, etc -->
-    <Target Name="WriteVersionsFile" DependsOnTargets="ExtractVersionInfo">
-      <ItemGroup>
-        <Line Include="true">
-          <Text>&lt;?xml version="1.0" encoding="utf-8" ?&gt;</Text>
-        </Line>
-        <Line Include="true">
-          <Text>&lt;package&gt;</Text>
-        </Line>
-        <Line Include="true">
-          <Text>&lt;version&gt;%(MyAssembly.FileVersion)&lt;/version&gt;</Text>
-        </Line>
-        <Line Include="true">
-          <Text>&lt;/package&gt;</Text>
-        </Line>
-        <LineText Include="%(Line.Text)" />
-      </ItemGroup>
-      <WriteLinesToFile File="$(ProjectDir)$(AssemblyName).VersionInfo.xml" Lines="@(LineText)" Overwrite="true" />
-    </Target>
-
-    <!-- Copies the assemblies and symbol files we're packaging into the correct locations-->
-    <Target Name="CopyAssembliesToLibDirectories">
-      <ItemGroup>
-        <Net40Assemblies Include="$(CopySourceFolder)\*.dll" Exclude="$(CopySourceFolder)\*.Silverlight.dll;$(CopySourceFolder)\*.Tests.dll;$(CopySourceFolder)\*.mm.dll" />
-        <Net40Symbols Include="$(CopySourceFolder)\*.pdb" Exclude="$(CopySourceFolder)\*.Silverlight.pdb;$(CopySourceFolder)\*.Tests.pdb;$(CopySourceFolder)\*.mm.pdb" />
-        <SL40Assemblies Include="$(CopySourceFolder)\*.Silverlight.dll" />
-        <SL40Symbols Include="$(CopySourceFolder)\*.Silverlight.pdb" />
-      </ItemGroup>
-      <Copy DestinationFolder="$(ProjectDir)Package\lib\Net40" SourceFiles="@(Net40Assemblies)" SkipUnchangedFiles="false"  />
-      <Copy DestinationFolder="$(ProjectDir)Package\lib\Net40" SourceFiles="@(Net40Symbols)" SkipUnchangedFiles="false"  />
-      <Copy DestinationFolder="$(ProjectDir)Package\lib\SL40" SourceFiles="@(SL40Assemblies)" SkipUnchangedFiles="false" />
-      <Copy DestinationFolder="$(ProjectDir)Package\lib\SL40" SourceFiles="@(SL40Symbols)" SkipUnchangedFiles="false" />
-    </Target>
-=======
   <Target Name="CheckNuGetPackageAndPublishPrerequisites">
     <!-- Raise an error if we're unable to locate nuget.exe  -->
     <Error Condition="!Exists('$(NuGetExePath)') and ($(CreateNuGetPackage) == 'true' or $(PublishNuGetPackage) == 'true')" Text="Unable to locate '$(NuGetExePath)'" />
@@ -172,7 +123,6 @@
     <Copy DestinationFolder="$(ProjectDir)Package\lib\SL40" SourceFiles="@(SL40Assemblies)" SkipUnchangedFiles="false" />
     <Copy DestinationFolder="$(ProjectDir)Package\lib\SL40" SourceFiles="@(SL40Symbols)" SkipUnchangedFiles="false" />
   </Target>
->>>>>>> Fixed for Issues 3, 7 & 11
 
   <Target Name="CheckOutNuSpecFiles" DependsOnTargets="CheckNuGetPackageAndPublishPrerequisites" Condition="@(NuSpecFiles) != '' and Exists('$(TFPath)') and $(RegenerateNuSpecFiles) == 'true'">
     <Exec ContinueOnError="true" Command="&quot;$(TFPath)&quot; checkout &quot;%(NuSpecFiles.FullPath)&quot;" Condition="($(SccProvider) == 'SAK')" />

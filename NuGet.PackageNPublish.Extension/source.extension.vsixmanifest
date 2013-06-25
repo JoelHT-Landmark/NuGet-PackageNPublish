@@ -7,12 +7,12 @@
     <Description xml:space="preserve">
       NuGet Packag'n'Publish project template &amp; tooling for VS2010 &amp; VS2012.
     
-    
       This Visual Studio extension (VISX) contains Project templates and a packaging MSBuild targets file to allow easier Package'n'Publish integration with TFS (or other CI) builds.
 
       The key to this integration is that the .nuspec file is generated from the project AssemblyInfo.cs file and the packages.config file automatically - so standard versioning techniques will work perfectly with it.
 
-      It was first presented at Developer! Developer! Developer! South West 4 (http://www.dddsouthwest.com) on 26th May 2012.
+      It was presented at Developer! Developer! Developer! South West 4 ( http://www.dddsouthwest.com ) on 26th May 2012, and
+      in an updated form at DDDNorth 2 ( http://developerdeveloperdeveloper.com/north2/ ) on 13th October 2012.
 
       Source code for the project can be found at https://github.com/JoelHT-Landmark/NuGet-PackageNPublish.
     
@@ -20,11 +20,7 @@
     <Locale>1033</Locale>
     <MoreInfoUrl>http://github.com/JoelHT-Landmark/NuGet-PackageNPublish</MoreInfoUrl>
     <License>License.txt</License>
-<<<<<<< HEAD
     <GettingStartedGuide>https://github.com/JoelHT-Landmark/NuGet-PackageNPublish/blob/master/README.md</GettingStartedGuide>
-=======
-    <GettingStartedGuide>http://github.com/JoelHT-Landmark/NuGet-PackageNPublish/blob/master/README.md</GettingStartedGuide>
->>>>>>> Fixed for Issues 3, 7 & 11
     <Icon>__TemplateIcon.jpg</Icon>
     <SupportedProducts>
       <VisualStudio Version="10.0">

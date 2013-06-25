@@ -6,6 +6,12 @@ file to allow easier Package&#39;n&#39;Publish integration with TFS (or other CI
 It was presented at Developer! Developer! Developer! South West 4 ( http://www.dddsouthwest.com ) on 26th May 2012, and
 in an updated form at DDDNorth 2 ( http://developerdeveloperdeveloper.com/north2/ ) on 13th October 2012.
 
+## Changes for v0.7
+
+- No longer automatically adds all references by default (See issues 3, 7 & 11 - https://github.com/JoelHT-Landmark/NuGet-PackageNPublish/issues )
+- Includes source for "parent" library package by default.
+- Updated to use NuGet v2.5 or above
+
 ## Requirements
 
 - Visual Studio 2012 SP1.
@@ -33,10 +39,13 @@ There's a handy screencast demonstrating how to get started on YouTube:
     ---- c:\temp\MySolution\MyLibrary.NuGetPackage.csproj 
 
  - Give the project sensible name ending in .NuGetPackage - e.g. "MyLibrary.NuGetPackage"
-  - If named like this, then the assembly from the packaging project is removed from the package automatically.  
+  - If named like this, then the assembly from the packaging project is removed from the package automatically,
 
 - Add references to the assemblies you want to include in your package
-  - By default, if you name your package "MyLibrary.NuGetPackage" (or similar), and reference "MyLibrary" then you're already good to go. 
+  - By default, if you name your package "MyLibrary.NuGetPackage" (or similar), and reference "MyLibrary" then 
+    you're already good to go,
+    AND the packaging project will include your "MyLibrary.dll" automagically,
+    AND it will find and package the source in a symbols package - again automagically. 
  - Any assembly ending in **.Silverlight.dll** will be put in the **lib/SL40** folder within the package.
  - Any other assembly will be put in the **lib/Net40** folder within the package.
  - Don't forget to add a line to the **.tt** file for the library for any additional references other than the one to "MyLibrary"  
@@ -77,5 +86,5 @@ For general chat about the NuGet.PackageNPublish tooling, there's also the JabbR
 
 ## Thanks
 
-Thanks have to go to my company, Landmark Information Group (http://www.landmark.co.uk / @LandmarkUK) for allowing this
+Thanks have to go to my company, Landmark Information Group ( http://www.landmark.co.uk / http://twitter.com/LandmarkUK ) for allowing this
 
