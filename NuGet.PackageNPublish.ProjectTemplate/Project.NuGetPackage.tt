@@ -8,8 +8,8 @@
 <#
  var sourcePath = System.IO.Path.GetDirectoryName(Host.TemplateFile);
  var packagesDoc = System.Xml.Linq.XDocument.Load(sourcePath + "\\packages.config");
- var packages = from p in packagesDoc.Descendants("package") select p;
- 
+ var packages = from p in packagesDoc.Descendants("package").Where(p => !p.Attribute("id").Value.StartsWith("NuGet.")) select p;
+  
  var assemblyInfo = System.IO.File.ReadAllText(sourcePath + "\\Properties\\AssemblyInfo.cs");
  
  Func<string, string> extract = (string tag) => {
@@ -40,8 +40,12 @@ var description = extract("AssemblyDescription");
     </dependencies>
   </metadata>
   <files>
-      <file src="lib\**\*.dll" target="lib" />
-      <file src="lib\**\*.pdb" target="lib" />
+      <#
+	  Write("	  <file src=\"lib\\**\\" + packageId + ".dll\" target=\"lib\" />\n");
+	  Write("	  <file src=\"lib\\**\\" + packageId + ".pdb\" target=\"lib\" />\n");
+	  Write("	  <file src=\"..\\..\\" + packageId + "\\**\\*.cs\" target=\"src\\" + packageId + "\" " + 
+			"exclude=\"..\\..\\" + packageId + "\\obj\\**\\*.cs\" />\n");
+	  #>
 	  <file src="tools\**\*.*" target="tools" />
 	  <file src="content\**\*.*" target="content" exclude="content\Content.Readme.txt" />
   </files>
