@@ -132,13 +132,17 @@
   <Target Name="CopyAssembliesToLibDirectories">
     <ItemGroup>
       <Net40Assemblies Include="$(CopySourceFolder)\*.dll" Exclude="$(CopySourceFolder)\*.Silverlight.dll;$(CopySourceFolder)\*.Tests.dll" />
+      <Net40XmlDocs Include="$(CopySourceFolder)\*.xml" Exclude="$(CopySourceFolder)\*.Silverlight.xml;$(CopySourceFolder)\*.Tests.xml" />
       <Net40Symbols Include="$(CopySourceFolder)\*.pdb" Exclude="$(CopySourceFolder)\*.Silverlight.pdb;$(CopySourceFolder)\*.Tests.pdb" />
       <SL40Assemblies Include="$(CopySourceFolder)\*.Silverlight.dll" />
+      <SL40XmlDocs Include="$(CopySourceFolder)\*.Silverlight.xml" />
       <SL40Symbols Include="$(CopySourceFolder)\*.Silverlight.pdb" />
     </ItemGroup>
     <Copy DestinationFolder="$(ProjectDir)Package\lib\Net40" SourceFiles="@(Net40Assemblies)" SkipUnchangedFiles="false"  />
+    <Copy DestinationFolder="$(ProjectDir)Package\lib\Net40" SourceFiles="@(Net40XmlDocs)" SkipUnchangedFiles="false"  />
     <Copy DestinationFolder="$(ProjectDir)Package\lib\Net40" SourceFiles="@(Net40Symbols)" SkipUnchangedFiles="false"  />
     <Copy DestinationFolder="$(ProjectDir)Package\lib\SL40" SourceFiles="@(SL40Assemblies)" SkipUnchangedFiles="false" />
+    <Copy DestinationFolder="$(ProjectDir)Package\lib\SL40" SourceFiles="@(SL40XmlDocs)" SkipUnchangedFiles="false" />
     <Copy DestinationFolder="$(ProjectDir)Package\lib\SL40" SourceFiles="@(SL40Symbols)" SkipUnchangedFiles="false" />
   </Target>
 
