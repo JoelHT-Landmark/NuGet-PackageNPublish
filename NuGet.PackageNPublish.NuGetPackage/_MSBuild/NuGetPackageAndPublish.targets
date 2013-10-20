@@ -4,7 +4,9 @@
 
   <PropertyGroup>
 
-    <RegenerateNuSpecFiles Condition="$(RegenerateNuSpecFiles) == ''">true</RegenerateNuSpecFiles>
+    <RegenerateNuSpecFiles Condition="($(RegenerateNuSpecFiles) == '' Or $(RegenerateNuSpecFiles) == '*Undefined*')">true</RegenerateNuSpecFiles>
+    <TfsCheckOut Condition="($(TfsCheckOut) == '' Or $(TfsCheckOut) == '*Undefined*')">true</TfsCheckOut>
+    
     <CreateNuGetPackage Condition="$(CreateNuGetPackage) == ''">true</CreateNuGetPackage>
     <PublishNuGetPackage Condition="$(PublishNuGetPackage) == ''">false</PublishNuGetPackage>
     <CreateSymbolPackage Condition="$(CreateSymbolPackage) == ''">true</CreateSymbolPackage>
@@ -94,9 +96,9 @@
   <!-- Check all the pre-requisites are in place -->
   <Target Name="CheckNuGetPackageAndPublishPrerequisites">
     <!-- Raise an error if we're unable to locate nuget.exe  -->
-    <Error Condition="!Exists('$(NuGetExePath)') and ($(CreateNuGetPackage) == 'true' or $(PublishNuGetPackage) == 'true')" Text="Unable to locate '$(NuGetExePath)'" />
-    <Error Condition="!Exists('$(TTGenPath)') and $(RegenerateNuSpecFiles) == 'true'" Text="Unable to locate '$(TTGenPath)'" />
-    <Message Condition="!Exists('$(TFPath)') and $(RegenerateNuSpecFiles) == 'true'" Text="Unable to locate '$(TFPath)'" />
+    <Error Condition="!Exists('$(NuGetExePath)') and ($(CreateNuGetPackage) == 'true' or $(PublishNuGetPackage) == 'true')" Text="Unable to locate 'NuGet.exe'" />
+    <Error Condition="!Exists('$(TTGenPath)') and $(RegenerateNuSpecFiles) == 'true'" Text="Unable to locate 'TextTemplate.exe' - install a VS-SDK or build with /p:RegenerateNuSpecFiles=false" />
+    <Message Condition="!Exists('$(TFPath)') and $(TfsCheckOut) == 'true'" Text="Unable to locate 'Tf.exe' - install TFS client or build with /p:TfsCheckOut=false" />
   </Target>
 
   <!-- Get the version info from the assembly to use as the version number of the assembly -->
@@ -140,7 +142,8 @@
     <Copy DestinationFolder="$(ProjectDir)Package\lib\SL40" SourceFiles="@(SL40Symbols)" SkipUnchangedFiles="false" />
   </Target>
 
-  <Target Name="CheckOutNuSpecFiles" DependsOnTargets="CheckNuGetPackageAndPublishPrerequisites" Condition="@(NuSpecFiles) != '' and Exists('$(TFPath)') and $(RegenerateNuSpecFiles) == 'true'">
+  <Target Name="CheckOutNuSpecFiles" DependsOnTargets="CheckNuGetPackageAndPublishPrerequisites" 
+          Condition="@(NuSpecFiles) != '' and Exists('$(TFPath)') and $(RegenerateNuSpecFiles) == 'true' and $(TfsCheckOut) == 'true'">
     <Exec ContinueOnError="true" Command="&quot;$(TFPath)&quot; checkout &quot;%(NuSpecFiles.FullPath)&quot;" Condition="($(SccProvider) == 'SAK')" />
   </Target>
 
