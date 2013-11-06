@@ -18,7 +18,17 @@
 	return value.ToString();
 	};
 	
-var fileVer = extract("AssemblyFileVersion");
+var fileVer = extract("AssemblyVersion").Trim();
+if (fileVer.EndsWith(".*"))
+{
+    var buildStamp = DateTime.UtcNow.ToString("yyMMdd.HHmmss");
+    fileVer = fileVer.Replace("*", buildStamp);
+}
+else
+{
+	fileVer = extract("AssemblyFileVersion");
+}
+
 var packageId = extract("AssemblyTitle").Replace(".NuGetPackage", string.Empty);
 var description = extract("AssemblyDescription");
 #>

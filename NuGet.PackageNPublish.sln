@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{31F89F4B-36CF-4E9D-9BD2-89CA8314170E}"
 	ProjectSection(SolutionItems) = preProject
 		Tools\zip.exe = Tools\zip.exe
@@ -14,13 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{231AFD
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.PackageNPublish.VS2012.Extension", "NuGet.PackageNPublish.VS2012.Extension\NuGet.PackageNPublish.VS2012.Extension.csproj", "{86D02EDB-2F2A-4FA6-B8D2-A26631D0BE2E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD} = {9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.PackageNPublish.NuGetPackage", "NuGet.PackageNPublish.NuGetPackage\NuGet.PackageNPublish.NuGetPackage.csproj", "{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet.PackageNPublish.ProjectTemplate", "NuGet.PackageNPublish.ProjectTemplate", "{A3D179B9-8199-4A8C-B276-5D132DD02095}"
 	ProjectSection(SolutionItems) = preProject
 		NuGet.PackageNPublish.ProjectTemplate\__TemplateIcon.jpg = NuGet.PackageNPublish.ProjectTemplate\__TemplateIcon.jpg
@@ -30,11 +25,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet.PackageNPublish.Proje
 		NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.nuspec = NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.nuspec
 		NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.tt = NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.tt
 		NuGet.PackageNPublish.ProjectTemplate\Project.vstemplate = NuGet.PackageNPublish.ProjectTemplate\Project.vstemplate
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.PackageNPublish.Extension", "NuGet.PackageNPublish.Extension\NuGet.PackageNPublish.Extension.csproj", "{B3D6DB16-53B7-409E-9C25-C71AA30E2003}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD} = {9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{6824B1A0-8D6F-4B27-8337-E8365E021837}"
@@ -76,6 +66,18 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3F2AABCE-8D28-4A43-A26F-A786BB2666F7}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.PackageNPublish.VS2013.Extension", "NuGet.PackageNPublish.VS2012.Extension\NuGet.PackageNPublish.VS2013.Extension.csproj", "{86D02EDB-2F2A-4FA6-B8D2-A26631D0BE2E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD} = {9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.PackageNPublish.NuGetPackage", "NuGet.PackageNPublish.NuGetPackage\NuGet.PackageNPublish.NuGetPackage.csproj", "{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.PackageNPublish.Extension", "NuGet.PackageNPublish.Extension\NuGet.PackageNPublish.Extension.csproj", "{B3D6DB16-53B7-409E-9C25-C71AA30E2003}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD} = {9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}
 	EndProjectSection
 EndProject
 Global
