@@ -1,5 +1,7 @@
 # NuGet-PackageNPublish
 
+[![Join the chat at https://gitter.im/JoelHT-Landmark/NuGet-PackageNPublish](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/JoelHT-Landmark/NuGet-PackageNPublish?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This project creates a Visual Studio extension (VISX) containing Project templates and a packaging MSBuild targets
 file to allow easier Package&#39;n&#39;Publish integration with TFS (or other CI) builds.
 
