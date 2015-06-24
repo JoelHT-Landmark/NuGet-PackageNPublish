@@ -9,8 +9,8 @@
     <ProjectGuid>{86D02EDB-2F2A-4FA6-B8D2-A26631D0BE2E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NuGet.PackageNPublish.VS2012.Extension</RootNamespace>
-    <AssemblyName>NuGet.PackageNPublish.VS2012.Extension</AssemblyName>
+    <RootNamespace>NuGet.PackageNPublish.Extension</RootNamespace>
+    <AssemblyName>NuGet.PackageNPublish.Extension</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
@@ -79,10 +79,8 @@
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" Condition="false" />
   <PropertyGroup>
-    <PreBuildEvent>@Echo Zipping project template...
-pushd "$(SolutionDir)NuGet.PackageNPublish.ProjectTemplate"
-"$(SolutionDir)Tools\zip.exe" -r "$(ProjectDir)ProjectTemplates\NuGet.PackageNPublish.zip" *.*
-popd</PreBuildEvent>
+    <PreBuildEvent>"$(SolutionDir)Tools\zip.exe" -r "$(ProjectDir)ProjectTemplates\NuGet.PackageNPublish.zip" "$(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\*.*"
+</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
