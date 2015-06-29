@@ -1,0 +1,3 @@
+﻿The build process should copy zip files for the project templates into this folder.
+
+This file is really to ensure that the folder exists in source control!
