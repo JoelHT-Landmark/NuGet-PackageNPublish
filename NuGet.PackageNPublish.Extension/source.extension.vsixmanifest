@@ -3,7 +3,7 @@
   <Identifier Id="NuGet.PackageNPublish.Extension..e7089ac7-835c-4892-a903-d0f3f6d60383">
     <Name>NuGet.PackageNPublish.Extension</Name>
     <Author>Joel Hammond-Turner</Author>
-    <Version>0.8.0.0</Version>
+    <Version>0.8.0.3</Version>
     <Description xml:space="preserve">
       NuGet Package'n'Publish project template &amp; tooling for VS2010, VS2012 &amp; VS2013.
     

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!--NuGetPackageAndPublish.targets v0.6.0.1 - See https://github.com/JoelHT-Landmark/NuGet-PackageNPublish for more information -->
+<!--NuGetPackageAndPublish.targets v0.8.0.3 - See https://github.com/JoelHT-Landmark/NuGet-PackageNPublish for more information -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
 
     <RegenerateNuSpecFiles Condition="($(RegenerateNuSpecFiles) == '' Or $(RegenerateNuSpecFiles) == '*Undefined*')">true</RegenerateNuSpecFiles>
-    <TfsCheckOut Condition="($(TfsCheckOut) == '' Or $(TfsCheckOut) == '*Undefined*')">true</TfsCheckOut>
+    <TfsCheckOut Condition="($(TfsCheckOut) == '' Or $(TfsCheckOut) == '*Undefined*')">false</TfsCheckOut>
     
     <CreateNuGetPackage Condition="$(CreateNuGetPackage) == ''">true</CreateNuGetPackage>
     <PublishNuGetPackage Condition="$(PublishNuGetPackage) == ''">false</PublishNuGetPackage>
@@ -20,18 +20,12 @@
     <PackagesDir Condition="$(PackagesDir) == '' Or $(PackagesDir) == '*Undefined*'">$([System.IO.Path]::Combine($(SolutionDir), "packages"))</PackagesDir>
 
     <!--Find the TextTransform.exe helper -->
-    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(CommonProgramFiles)\Microsoft Shared\TextTemplating\10.0\TextTransform.exe'))">$(CommonProgramFiles)\Microsoft Shared\TextTemplating\10.0\TextTransform.exe</TTGenPath>
-    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(CommonProgramFiles)\Microsoft Shared\TextTemplating\11.0\TextTransform.exe'))">$(CommonProgramFiles)\Microsoft Shared\TextTemplating\11.0\TextTransform.exe</TTGenPath>
-    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(CommonProgramFiles)\Microsoft Shared\TextTemplating\12.0\TextTransform.exe'))">$(CommonProgramFiles)\Microsoft Shared\TextTemplating\12.0\TextTransform.exe</TTGenPath>
-    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(CommonProgramFiles(x86))\Microsoft Shared\TextTemplating\10.0\TextTransform.exe'))">$(CommonProgramFiles(x86))\Microsoft Shared\TextTemplating\10.0\TextTransform.exe</TTGenPath>
-    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(CommonProgramFiles(x86))\Microsoft Shared\TextTemplating\11.0\TextTransform.exe'))">$(CommonProgramFiles(x86))\Microsoft Shared\TextTemplating\11.0\TextTransform.exe</TTGenPath>
-    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(CommonProgramFiles(x86))\Microsoft Shared\TextTemplating\12.0\TextTransform.exe'))">$(CommonProgramFiles(x86))\Microsoft Shared\TextTemplating\12.0\TextTransform.exe</TTGenPath>
-    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath)\..\Microsoft Shared\TextTemplating\10.0\TextTransform.exe'))">$(MSBuildExtensionsPath)\..\\Microsoft Shared\TextTemplating\10.0\TextTransform.exe</TTGenPath>
-    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath)\..\Microsoft Shared\TextTemplating\11.0\TextTransform.exe'))">$(MSBuildExtensionsPath)\..\\Microsoft Shared\TextTemplating\11.0\TextTransform.exe</TTGenPath>
-    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath)\..\Microsoft Shared\TextTemplating\12.0\TextTransform.exe'))">$(MSBuildExtensionsPath)\..\\Microsoft Shared\TextTemplating\12.0\TextTransform.exe</TTGenPath>
-    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath32)\..\Microsoft Shared\TextTemplating\10.0\TextTransform.exe'))">$(MSBuildExtensionsPath)\..\\Microsoft Shared\TextTemplating\10.0\TextTransform.exe</TTGenPath>
-    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath32)\..\Microsoft Shared\TextTemplating\11.0\TextTransform.exe'))">$(MSBuildExtensionsPath)\..\\Microsoft Shared\TextTemplating\11.0\TextTransform.exe</TTGenPath>
-    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath32)\..\Microsoft Shared\TextTemplating\12.0\TextTransform.exe'))">$(MSBuildExtensionsPath)\..\\Microsoft Shared\TextTemplating\12.0\TextTransform.exe</TTGenPath>
+    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath)\..\Common Files\Microsoft Shared\TextTemplating\10.0\TextTransform.exe'))">$(MSBuildExtensionsPath)\..\Common Files\Microsoft Shared\TextTemplating\10.0\TextTransform.exe</TTGenPath>
+    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath)\..\Common Files\Microsoft Shared\TextTemplating\11.0\TextTransform.exe'))">$(MSBuildExtensionsPath)\..\Common Files\Microsoft Shared\TextTemplating\11.0\TextTransform.exe</TTGenPath>
+    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath)\..\Common Files\Microsoft Shared\TextTemplating\12.0\TextTransform.exe'))">$(MSBuildExtensionsPath)\..\Common Files\Microsoft Shared\TextTemplating\12.0\TextTransform.exe</TTGenPath>
+    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\TextTemplating\10.0\TextTransform.exe'))">$(MSBuildExtensionsPath)\..\Common Files\Microsoft Shared\TextTemplating\10.0\TextTransform.exe</TTGenPath>
+    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\TextTemplating\11.0\TextTransform.exe'))">$(MSBuildExtensionsPath)\..\Common Files\Microsoft Shared\TextTemplating\11.0\TextTransform.exe</TTGenPath>
+    <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\TextTemplating\12.0\TextTransform.exe'))">$(MSBuildExtensionsPath)\..\Common Files\Microsoft Shared\TextTemplating\12.0\TextTransform.exe</TTGenPath>
 
     <!--Find the tf.exe helper -->
     <TFPath Condition="($(TFPath) == '' Or $(TFPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath)\..\Microsoft Visual Studio 10.0\Common7\IDE\tf.exe'))">$(MSBuildExtensionsPath)\..\Microsoft Visual Studio 10.0\Common7\IDE\tf.exe</TFPath>
@@ -68,6 +62,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <TTGenPathCandidates Include ="$(MSBuildExtensionsPath)\..\Common Files\Microsoft Shared\TextTemplating\12.0\TextTransform.exe;" />
+    <TTGenPathCandidates Include ="$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\TextTemplating\12.0\TextTransform.exe;" />
+    <TTGenPathCandidates Include ="$(MSBuildExtensionsPath)\..\Common Files\Microsoft Shared\TextTemplating\11.0\TextTransform.exe;" />
+    <TTGenPathCandidates Include ="$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\TextTemplating\11.0\TextTransform.exe;" />
+    <TTGenPathCandidates Include ="$(MSBuildExtensionsPath)\..\Common Files\Microsoft Shared\TextTemplating\10.0\TextTransform.exe;" />
+    <TTGenPathCandidates Include ="$(MSBuildExtensionsPath32)\..\Common Files\Microsoft Shared\TextTemplating\10.0\TextTransform.exe;" />
+  </ItemGroup>
+
+  <ItemGroup>
     <NuSpecFiles Include="**\*.nuspec" />
   </ItemGroup>
 
@@ -98,6 +101,7 @@
     <!-- Raise an error if we're unable to locate nuget.exe  -->
     <Error Condition="!Exists('$(NuGetExePath)') and ($(CreateNuGetPackage) == 'true' or $(PublishNuGetPackage) == 'true')" Text="Unable to locate 'NuGet.exe'" />
     <Error Condition="!Exists('$(TTGenPath)') and $(RegenerateNuSpecFiles) == 'true'" Text="Unable to locate 'TextTemplate.exe' - install a VS-SDK or build with /p:RegenerateNuSpecFiles=false" />
+    <Message Text=" - @(TTGenPathCandidates)" />
     <Message Condition="!Exists('$(TFPath)') and $(TfsCheckOut) == 'true'" Text="Unable to locate 'Tf.exe' - install TFS client or build with /p:TfsCheckOut=false" />
   </Target>
 

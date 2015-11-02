@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>PackagingTest</id>
+    <version>0.5.0.0</version>
+    <title>PackagingTest</title>
+    <authors>joel</authors>
+    <summary></summary>
+    <description>PackagingTest.NuGetPackage</description>
+    <language>en-us</language>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <dependencies>
+        </dependencies>
+  </metadata>
+  <files>
+      	  <file src="lib\**\PackagingTest.dll" target="lib" />
+	  <file src="lib\**\PackagingTest.pdb" target="lib" />
+	  <file src="..\..\PackagingTest\**\*.cs" target="src\PackagingTest" exclude="..\..\PackagingTest\obj\**\*.cs" />
+	  <file src="tools\**\*.*" target="tools" />
+	  <file src="content\**\*.*" target="content" exclude="content\Content.Readme.txt" />
+  </files>
+</package>
