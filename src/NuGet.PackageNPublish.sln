@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.PackageNPublish.Extension", "NuGet.PackageNPublish.Extension\NuGet.PackageNPublish.Extension.csproj", "{09791E1A-019F-44EF-8397-FAC5514F6F80}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet.PackageNPublish.ProjectTemplate", "NuGet.PackageNPublish.ProjectTemplate", "{8B1A3F2C-BE7C-4CFB-A762-7444F54CB5B7}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.PackageNPublish.ProjectTemplate\__TemplateIcon.jpg = NuGet.PackageNPublish.ProjectTemplate\__TemplateIcon.jpg
+		NuGet.PackageNPublish.ProjectTemplate\packages.config = NuGet.PackageNPublish.ProjectTemplate\packages.config
+		NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.cs = NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.cs
+		NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.csproj = NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.csproj
+		NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.nuspec = NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.nuspec
+		NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.tt = NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.tt
+		NuGet.PackageNPublish.ProjectTemplate\Project.vstemplate = NuGet.PackageNPublish.ProjectTemplate\Project.vstemplate
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_MSBuild", "_MSBuild", "{9AD12E2B-EC69-464F-BC2A-92197552CF61}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets = NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Package", "Package", "{C3974DFE-31F7-4D5B-8050-D263F78A2486}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{50DCB4B7-49C4-4377-9A1A-A71129EA3A44}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.PackageNPublish.ProjectTemplate\Package\content\Content.Readme.txt = NuGet.PackageNPublish.ProjectTemplate\Package\content\Content.Readme.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{384A64CA-129F-4CA4-84DE-FAD1ECB6C44E}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.PackageNPublish.ProjectTemplate\Package\tools\init.ps1 = NuGet.PackageNPublish.ProjectTemplate\Package\tools\init.ps1
+		NuGet.PackageNPublish.ProjectTemplate\Package\tools\install.ps1 = NuGet.PackageNPublish.ProjectTemplate\Package\tools\install.ps1
+		NuGet.PackageNPublish.ProjectTemplate\Package\tools\uninstall.ps1 = NuGet.PackageNPublish.ProjectTemplate\Package\tools\uninstall.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{C224F452-A3C1-46B2-88F9-DDC0071B992E}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.PackageNPublish.ProjectTemplate\Properties\AssemblyInfo.cs = NuGet.PackageNPublish.ProjectTemplate\Properties\AssemblyInfo.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{1E0B6077-2D5C-4C75-A113-34AD4A8C8368}"
+	ProjectSection(SolutionItems) = preProject
+		Tools\zip.exe = Tools\zip.exe
+		Tools\zip_license.html = Tools\zip_license.html
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09791E1A-019F-44EF-8397-FAC5514F6F80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09791E1A-019F-44EF-8397-FAC5514F6F80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09791E1A-019F-44EF-8397-FAC5514F6F80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09791E1A-019F-44EF-8397-FAC5514F6F80}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9AD12E2B-EC69-464F-BC2A-92197552CF61} = {8B1A3F2C-BE7C-4CFB-A762-7444F54CB5B7}
+		{C3974DFE-31F7-4D5B-8050-D263F78A2486} = {8B1A3F2C-BE7C-4CFB-A762-7444F54CB5B7}
+		{50DCB4B7-49C4-4377-9A1A-A71129EA3A44} = {C3974DFE-31F7-4D5B-8050-D263F78A2486}
+		{384A64CA-129F-4CA4-84DE-FAD1ECB6C44E} = {C3974DFE-31F7-4D5B-8050-D263F78A2486}
+		{C224F452-A3C1-46B2-88F9-DDC0071B992E} = {8B1A3F2C-BE7C-4CFB-A762-7444F54CB5B7}
+	EndGlobalSection
+EndGlobal

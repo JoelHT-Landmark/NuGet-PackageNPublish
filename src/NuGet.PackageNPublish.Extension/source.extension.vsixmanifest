@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="NuGet.PackageNPublish.Extension.Company.63c88003-4ed6-4b91-afdd-1b8645b0b5e9" Version="1.0" Language="en-US" Publisher="Company" />
+    <DisplayName>NuGet.PackageNPublish.Extension</DisplayName>
+    <Description xml:space="preserve">NuGet Packag'n'Publish project template &amp; tooling for VS2010 &amp; VS2012. This Visual Studio extension (VISX) contains Project templates and a packaging MSBuild targets file to allow easier Package'n'Publish integration with TFS (or other CI) builds.</Description>
+    <MoreInfo>https://github.com/JoelHT-Landmark/NuGet-PackageNPublish</MoreInfo>
+    <License>Apache 2.0 License.rtf</License>
+    <GettingStartedGuide>Getting Started.rtf</GettingStartedGuide>
+    <ReleaseNotes>Release Notes.rtf</ReleaseNotes>
+    <Tags>Package, NuGet, Project Template</Tags>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0]" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\NuGet.PackageNPublish.zip" />
+  </Assets>
+</PackageManifest>
