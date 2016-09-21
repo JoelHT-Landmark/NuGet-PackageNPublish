@@ -8,8 +8,11 @@ in an updated form at DDDNorth 2 ( http://developerdeveloperdeveloper.com/north2
 
 #### Current Build Status
 
- - VSO ![](https://nugetpackagenpublish.visualstudio.com/_apis/public/build/definitions/d270dcb4-c4e4-4ce0-811b-780550fc7bda/1/badge)
- - AppVeyor [![Build status](https://ci.appveyor.com/api/projects/status/5pgdecx34ipxi0tc?svg=true)](https://ci.appveyor.com/project/JoelHT-Landmark/nuget-packagenpublish)
+| Build Engine   | Status |
+| -------- |:-------------:|
+| VSO      | ![](https://nugetpackagenpublish.visualstudio.com/_apis/public/build/definitions/d270dcb4-c4e4-4ce0-811b-780550fc7bda/1/badge) |
+| AppVeyor | [![Build status](https://ci.appveyor.com/api/projects/status/5pgdecx34ipxi0tc?svg=true)](https://ci.appveyor.com/project/JoelHT-Landmark/nuget-packagenpublish) |
+
   
 ## Changes for v0.7
 
