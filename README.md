@@ -6,8 +6,11 @@ file to allow easier Package&#39;n&#39;Publish integration with TFS (or other CI
 It was presented at Developer! Developer! Developer! South West 4 ( http://www.dddsouthwest.com ) on 26th May 2012, and
 in an updated form at DDDNorth 2 ( http://developerdeveloperdeveloper.com/north2/ ) on 13th October 2012.
 
-Current Build Status (VSO) ![](https://nugetpackagenpublish.visualstudio.com/_apis/public/build/definitions/d270dcb4-c4e4-4ce0-811b-780550fc7bda/1/badge)
+#### Current Build Status
 
+ - VSO ![](https://nugetpackagenpublish.visualstudio.com/_apis/public/build/definitions/d270dcb4-c4e4-4ce0-811b-780550fc7bda/1/badge)
+ - AppVeyor [![Build status](https://ci.appveyor.com/api/projects/status/5pgdecx34ipxi0tc?svg=true)](https://ci.appveyor.com/project/JoelHT-Landmark/nuget-packagenpublish)
+  
 ## Changes for v0.7
 
 - No longer automatically adds all references by default (See issues 3, 7 & 11 - https://github.com/JoelHT-Landmark/NuGet-PackageNPublish/issues )
