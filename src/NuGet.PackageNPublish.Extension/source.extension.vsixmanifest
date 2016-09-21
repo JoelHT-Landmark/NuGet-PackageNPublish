@@ -5,9 +5,9 @@
     <DisplayName>NuGet.PackageNPublish.Extension</DisplayName>
     <Description xml:space="preserve">NuGet Packag'n'Publish project template &amp; tooling for VS2010 &amp; VS2012. This Visual Studio extension (VISX) contains Project templates and a packaging MSBuild targets file to allow easier Package'n'Publish integration with TFS (or other CI) builds.</Description>
     <MoreInfo>https://github.com/JoelHT-Landmark/NuGet-PackageNPublish</MoreInfo>
-    <License>Apache 2.0 License.rtf</License>
-    <GettingStartedGuide>Getting Started.rtf</GettingStartedGuide>
-    <ReleaseNotes>Release Notes.rtf</ReleaseNotes>
+    <License>ApacheLicense_2-0.md</License>
+    <GettingStartedGuide>GettingStarted.md</GettingStartedGuide>
+    <ReleaseNotes>ReleaseNotes.md</ReleaseNotes>
     <Tags>Package, NuGet, Project Template</Tags>
   </Metadata>
   <Installation>
