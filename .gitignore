@@ -45,6 +45,8 @@ build/
 *.vspscc
 *.vssscc
 .builds
+*.nupkg
+*.dll
 
 *.pidb
 

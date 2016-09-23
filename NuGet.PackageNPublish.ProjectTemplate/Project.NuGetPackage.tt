@@ -1,62 +1,60 @@
-﻿<#@ template debug="false" hostspecific="true" language="C#" #>
-<#@ output extension=".nuspec" #>
-<#@ assembly name="System.Core" #>
-<#@ assembly name="System.Xml" #>
-<#@ assembly name="System.Xml.Linq" #>
-<#@ import namespace="System.IO" #>
-<#@ import namespace="System.Linq" #>
-<#
- var sourcePath = System.IO.Path.GetDirectoryName(Host.TemplateFile);
- var packagesDoc = System.Xml.Linq.XDocument.Load(sourcePath + "\\packages.config");
- var packages = from p in packagesDoc.Descendants("package").Where(p => !p.Attribute("id").Value.StartsWith("NuGet.")) select p;
-  
- var assemblyInfo = System.IO.File.ReadAllText(sourcePath + "\\Properties\\AssemblyInfo.cs");
- 
- Func<string, string> extract = (string tag) => {
-	var matcher = new System.Text.RegularExpressions.Regex("(" + tag + "\\(\")(.*)(\"\\))");
-	var value = matcher.Match(assemblyInfo).Groups[2]; 
-	return value.ToString();
-	};
-	
-var fileVer = extract("AssemblyVersion").Trim();
-if (fileVer.EndsWith(".*"))
-{
-    var buildStamp = DateTime.UtcNow.ToString("yyMMdd.HHmmss");
-    fileVer = fileVer.Replace("*", buildStamp);
-}
-else
-{
-	fileVer = extract("AssemblyFileVersion");
-}
+﻿/*
+    Amend this template as you see fit. The bare minumum you need is an instance of the class NuGetPackageAndPublish:
 
-var packageId = extract("AssemblyTitle").Replace(".NuGetPackage", string.Empty);
-var description = extract("AssemblyDescription");
+        var pnp = new NuGetPackageAndPublish(Host.ResolvePath("."));
+
+    The following properties then become available to your template:
+
+        pnp.Project.Name
+
+        pnp.Assembly.Title
+        pnp.Assembly.Description
+        pnp.Assembly.Version
+        pnp.Assembly.FileVersion
+        pnp.Assembly.InformationalVersion
+
+        pnp.Package.Id
+        pnp.Package.Title
+        pnp.Package.Description
+        pnp.Package.Version
+        pnp.Package.Dependencies
+
+    Significantly the package properties are derived from the pnp.Project and pnp.Assembly properties to give sensible 
+    defaults if they are not available. Also, pnp.Package.Version is determined by assessing which of the assembly 
+    version fields (in AssemblyInfo.cs) is the 'highest'. If there is a pre-release specified in one of the assembly 
+    version fields then this pre-release version is taken as the Package.Version.
+*/
+<#@ template debug="false" hostspecific="true" language="C#"
+#><#@ output extension=".nuspec"
+#><#@ include file=".\_MSBuild\NuGetPackageAndPublish.tt.include" once="true"
+#><#
+    var pnp = new NuGetPackageAndPublish(Host.ResolvePath("."));
 #>
 <?xml version="1.0" encoding="utf-8" ?>
 <package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <id><#= packageId #></id>
-    <version><#= fileVer #></version>
-    <title><#= packageId #></title>
+    <id><#= pnp.Package.Id #></id>
+    <version><#= pnp.Package.Version #></version>
+    <title><#= pnp.Package.Title #></title>
     <authors>$username$</authors>
     <summary></summary>
-    <description><#= description #></description>
+    <description><#= pnp.Package.Description #></description>
     <language>en-us</language>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
-    <# foreach (var package in packages) { #>
+    <# foreach (var package in pnp.Package.Dependencies) { #>
     <dependency <#= package.Attribute("id") #> <#= package.Attribute("version") #> />
     <# } #>
     </dependencies>
   </metadata>
   <files>
       <#
-	  Write("	  <file src=\"lib\\**\\" + packageId + ".dll\" target=\"lib\" />\n");
-	  Write("	  <file src=\"lib\\**\\" + packageId + ".pdb\" target=\"lib\" />\n");
-	  Write("	  <file src=\"..\\..\\" + packageId + "\\**\\*.cs\" target=\"src\\" + packageId + "\" " + 
-			"exclude=\"..\\..\\" + packageId + "\\obj\\**\\*.cs\" />\n");
-	  #>
-	  <file src="tools\**\*.*" target="tools" />
-	  <file src="content\**\*.*" target="content" exclude="content\Content.Readme.txt" />
+      Write("  <file src=\"lib\\**\\" + packageId + ".dll\" target=\"lib\" />\n");
+      Write("  <file src=\"lib\\**\\" + packageId + ".pdb\" target=\"lib\" />\n");
+      Write("  <file src=\"..\\..\\" + packageId + "\\**\\*.cs\" target=\"src\\" + packageId + "\" " + 
+            "exclude=\"..\\..\\" + packageId + "\\obj\\**\\*.cs\" />\n");
+      #>
+      <file src="tools\**\*.*" target="tools" />
+      <file src="content\**\*.*" target="content" exclude="content\Content.Readme.txt" />
   </files>
 </package>

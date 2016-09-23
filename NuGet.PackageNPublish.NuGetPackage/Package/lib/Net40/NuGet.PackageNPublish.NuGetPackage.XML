@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NuGet.PackageNPublish.NuGetPackage</name>
+    </assembly>
+    <members>
+        <member name="T:NuGet.PackageNPublish.NuGetPackage.T4Support.AssemblyProperties">
+            <summary>
+            Encapsulates information about the assembly for the current project.
+            </summary>
+        </member>
+        <member name="T:NuGet.PackageNPublish.NuGetPackage.T4Support.NuGetPackageAndPublish">
+            <summary>
+            Encapsulates information from various sources about the project being built.
+            </summary>
+        </member>
+        <member name="M:NuGet.PackageNPublish.NuGetPackage.T4Support.NuGetPackageAndPublish.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Builds a project, assembly and package instance
+            </summary>
+            <param name="hostDirectory">a directory to act as the root for file searches</param>
+            <param name="moduleNames">a list of modules that will be included in a package</param>
+        </member>
+        <member name="M:NuGet.PackageNPublish.NuGetPackage.T4Support.NuGetPackageAndPublish.BuildProjectProperties">
+            <summary>
+            Builds a ProjectProperties instance from a C# project file
+            </summary>
+        </member>
+        <member name="M:NuGet.PackageNPublish.NuGetPackage.T4Support.NuGetPackageAndPublish.BuildAssemblyProperties">
+            <summary>
+            Builds an AssemblyProperties instance from all C# files found 
+            in the 'properties' directory of the current project
+            </summary>
+        </member>
+        <member name="M:NuGet.PackageNPublish.NuGetPackage.T4Support.NuGetPackageAndPublish.BuildPackageProperties">
+            <summary>
+            Builds a PackageProperties instance based on information in the AssemblyProperties instance.
+            A package version is determined from a number of versions in the AssemblyProperties.
+            </summary>
+        </member>
+        <member name="T:NuGet.PackageNPublish.NuGetPackage.T4Support.PackageProperties">
+            <summary>
+            Encapsulates information about the package to be built for the current project
+            </summary>
+        </member>
+        <member name="M:NuGet.PackageNPublish.NuGetPackage.T4Support.PackageProperties.BuildPackageVersion(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Uses an algorithm for determining the 'best fit' version to use.
+            It assumes the version numbers are in *.*.*.* format as per Assembly Info versions.
+            If a number cannot be determined set the version to the default.
+            </summary>
+            <param name="versions">the versions to consider when determining the 'best fit'</param>
+            <returns></returns>
+        </member>
+        <member name="M:NuGet.PackageNPublish.NuGetPackage.T4Support.PackageProperties.ConvertToLong(System.String)">
+            <summary>
+            Determines a numeric value for a version info item in the assembly
+            </summary>
+            <param name="version">The assembly version item under consideration</param>
+            <returns></returns>
+        </member>
+        <member name="T:NuGet.PackageNPublish.NuGetPackage.T4Support.ProjectProperties">
+            <summary>
+            Encapsulates information from various sources about the project being built.
+            </summary>
+        </member>
+        <member name="M:NuGet.PackageNPublish.NuGetPackage.T4Support.ProjectProperties.#ctor(System.String)">
+            <summary>
+            Builds information about the project
+            </summary>
+            <param name="hostDirectory">a directory to act as the root for file searches</param>
+        </member>
+    </members>
+</doc>
