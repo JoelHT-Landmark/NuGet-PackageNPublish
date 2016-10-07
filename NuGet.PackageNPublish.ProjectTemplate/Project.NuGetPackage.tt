@@ -49,10 +49,10 @@
   </metadata>
   <files>
       <#
-      Write("  <file src=\"lib\\**\\" + packageId + ".dll\" target=\"lib\" />\n");
-      Write("  <file src=\"lib\\**\\" + packageId + ".pdb\" target=\"lib\" />\n");
-      Write("  <file src=\"..\\..\\" + packageId + "\\**\\*.cs\" target=\"src\\" + packageId + "\" " + 
-            "exclude=\"..\\..\\" + packageId + "\\obj\\**\\*.cs\" />\n");
+      Write("  <file src=\"lib\\**\\" + pnp.Package.Id + ".dll\" target=\"lib\" />\n");
+      Write("  <file src=\"lib\\**\\" + pnp.Package.Id + ".pdb\" target=\"lib\" />\n");
+      Write("  <file src=\"..\\..\\" + pnp.Package.Id + "\\**\\*.cs\" target=\"src\\" + pnp.Package.Id + "\" " + 
+            "exclude=\"..\\..\\" + pnp.Package.Id + "\\obj\\**\\*.cs\" />\n");
       #>
       <file src="tools\**\*.*" target="tools" />
       <file src="content\**\*.*" target="content" exclude="content\Content.Readme.txt" />

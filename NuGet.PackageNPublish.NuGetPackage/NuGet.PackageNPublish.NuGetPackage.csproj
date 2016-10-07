@@ -58,6 +58,7 @@
       <LastGenOutput>NuGet.PackageNPublish.NuGetPackage.nuspec</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Package\content\NuGetPackageAndPublish.tt.Example" />
     <None Include="Package\content\_MSBuild\NuGetPackageAndPublish.targets" />
     <None Include="Package\content\_MSBuild\NuGetPackageAndPublish.tt.include" />
     <None Include="Package\lib\Net40\Net40.Readme.txt" />
@@ -88,6 +89,7 @@ copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAn
 attrib -R $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.tt.include
 
 copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.tt.include $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.tt.include
-</PreBuildEvent>
+
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.tt $(ProjectDir)Package\content\NuGetPackageAndPublish.tt.Example</PreBuildEvent>
   </PropertyGroup>
 </Project>
