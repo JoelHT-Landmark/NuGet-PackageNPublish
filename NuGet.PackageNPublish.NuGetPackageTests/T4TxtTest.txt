@@ -6,7 +6,7 @@ Assembly Version: 1.0.*
 Assembly FileVersion: 1.6.16235.2
 Assembly InformationalVersion: 1.3.16235.1
 
-Package Id: AssemblyTitle
+Package Id: NuGet.PackageNPublishTests
 Package Title: AssemblyTitle
 Package Description: AssemblyDescription
 Package Version: 1.6.16235.2

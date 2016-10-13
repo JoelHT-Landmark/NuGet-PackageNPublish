@@ -92,9 +92,9 @@
       <LastGenOutput>T4TxtTest.txt</LastGenOutput>
     </Content>
     <Content Include="T4TxtTest.txt">
-      <DependentUpon>T4TxtTest.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>T4TxtTest.tt</DependentUpon>
     </Content>
   </ItemGroup>
   <Choose>
@@ -117,6 +117,14 @@
   </Choose>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>attrib -R $(ProjectDir)_MSBuild\NuGetPackageAndPublish.targets
+attrib -R $(ProjectDir)_MSBuild\NuGetPackageAndPublish.tt.include
+
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets $(ProjectDir)_MSBuild\NuGetPackageAndPublish.targets
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.tt.include $(ProjectDir)_MSBuild\NuGetPackageAndPublish.tt.include
+</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

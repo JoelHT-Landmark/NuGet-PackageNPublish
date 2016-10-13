@@ -67,7 +67,6 @@
     <None Include="Package\tools\install.ps1" />
     <None Include="Package\tools\uninstall.ps1" />
     <None Include="_MSBuild\NuGetPackageAndPublish.targets" />
-    <None Include="_MSBuild\NuGetPackageAndPublish.tt.include" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -83,13 +82,11 @@
   <Target Name="Publish" DependsOnTargets="Build;PublishNuGetPackage" />
   <PropertyGroup>
     <PreBuildEvent>attrib -R $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.targets
-
-copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.targets
-
 attrib -R $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.tt.include
 
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.targets
 copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.tt.include $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.tt.include
-
-copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.tt $(ProjectDir)Package\content\NuGetPackageAndPublish.tt.Example</PreBuildEvent>
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.tt $(ProjectDir)Package\content\NuGetPackageAndPublish.tt.Example
+</PreBuildEvent>
   </PropertyGroup>
 </Project>
