@@ -1,0 +1,29 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#"
+#><#@ output extension=".txt"
+#><#@ include file=".\_MSBuild\NuGetPackageAndPublish.tt.include" once="true"
+#><#
+    var moduleNames =
+        new string[]
+            {
+                "Lmk.QFutures.Core.Messaging",
+            };
+
+    var pnp = new NuGetPackageAndPublish(Host.ResolvePath("."), moduleNames);
+#>
+Project Name: <#= pnp.Project.Name #>
+
+Assembly Title: <#= pnp.Assembly.Title #>
+Assembly Description: <#= pnp.Assembly.Description #>
+Assembly Version: <#= pnp.Assembly.Version #>
+Assembly FileVersion: <#= pnp.Assembly.FileVersion #>
+Assembly InformationalVersion: <#= pnp.Assembly.InformationalVersion #>
+
+Package Id: <#= pnp.Package.Id #>
+Package Title: <#= pnp.Package.Title #>
+Package Description: <#= pnp.Package.Description #>
+Package Version: <#= pnp.Package.Version #>
+Package Dependencies: <#= pnp.Package.Dependencies.Count() #>
+<# foreach (var package in pnp.Package.Dependencies) { #>
+    Package Id: <#= package.Attribute("id") #>
+    Package Version: <#= package.Attribute("version") #> />
+<# } #>

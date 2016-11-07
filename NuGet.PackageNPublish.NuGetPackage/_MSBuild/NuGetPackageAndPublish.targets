@@ -158,9 +158,9 @@
 
   <Target Name="CreateNuGetPackage" DependsOnTargets="CheckNuGetPackageAndPublishPrerequisites;ExtractVersionInfo;CopyAssembliesToLibDirectories">
     <!-- Build without symbols if $(CreateSymbolPackage) == 'False' -->
-    <Exec Command="&quot;$(NuGetExePath)&quot; pack &quot;$(ProjectDir)$(AssemblyName).nuspec&quot; -BasePath &quot;$(ProjectDir)Package&quot; -Verbosity Detailed -Exclude &quot;**\$(AssemblyName).dll;**\$(AssemblyName).pdb&quot;" Condition="$(CreateSymbolPackage) == 'False'" />
+    <Exec Command="&quot;$(NuGetExePath)&quot; pack &quot;$(ProjectDir)$(AssemblyName).nuspec&quot; -BasePath &quot;$(ProjectDir)Package&quot; -Verbosity Detailed -Exclude &quot;**\$(AssemblyName).pdb&quot;" Condition="$(CreateSymbolPackage) == 'False'" />
     <!-- Build with symbols if $(CreateSymbolPackage) == 'True' -->
-    <Exec Command="&quot;$(NuGetExePath)&quot; pack &quot;$(ProjectDir)$(AssemblyName).nuspec&quot; -Symbols -BasePath &quot;$(ProjectDir)Package&quot; -Verbosity Detailed -Exclude &quot;**\$(AssemblyName).dll;**\$(AssemblyName).pdb&quot;" Condition="$(CreateSymbolPackage) == 'True'" />
+    <Exec Command="&quot;$(NuGetExePath)&quot; pack &quot;$(ProjectDir)$(AssemblyName).nuspec&quot; -Symbols -BasePath &quot;$(ProjectDir)Package&quot; -Verbosity Detailed -Exclude &quot;**\$(AssemblyName).pdb&quot;" Condition="$(CreateSymbolPackage) == 'True'" />
   </Target>
 
   <Target Name="PublishNuGetPackage" DependsOnTargets="CreateNuGetPackage" Condition="$(PublishNuGetPackage) == 'True'">
