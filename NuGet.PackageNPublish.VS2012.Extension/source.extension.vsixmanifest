@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="NuGet.PackageNPublish.7C1F390F-DB40-4512-A367-1BCEF5345F41" Version="0.8.0.0" Language="en-US" Publisher="Joel Hammond-Turner" />
+    <Identity Id="NuGet.PackageNPublish.7C1F390F-DB40-4512-A367-1BCEF5345F41" Version="0.9.1" Language="en-US" Publisher="Joel Hammond-Turner" />
     <DisplayName>NuGet.PackageNPublish.Extension</DisplayName>
-    <Description xml:space="preserve">NuGet Package'n'Publish project template &amp;amp; tooling for VS2012 &amp;amp; VS2013.
+    <Description xml:space="preserve">NuGet Package'n'Publish project template &amp;amp; tooling for VS2012, VS &amp;amp; VS2013.
 </Description>
     <MoreInfo>https://github.com/JoelHT-Landmark/NuGet-PackageNPublish</MoreInfo>
     <License>License.txt</License>
