@@ -9,7 +9,7 @@
     <description>NuGet.PackageNPublish MSBuild targets file packaged as a NuGet package!</description>
     <language>en-us</language>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <is
+    <developmentDependency>true</developmentDependency>
     <dependencies>
         <dependency id="NuGet.Build" version="0.24" />
         </dependencies>
