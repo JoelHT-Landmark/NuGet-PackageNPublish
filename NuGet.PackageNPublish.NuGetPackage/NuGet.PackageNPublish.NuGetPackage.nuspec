@@ -10,6 +10,9 @@
       Provides an MSBuild targets file that enables a project to use a templated NuSpec file, 
       with automatic dependency detection and enumeration.
     </description>
+    <projectUrl>https://github.com/JoelHT-Landmark/NuGet-PackageNPublish</projectUrl>
+    <licenseUrl>https://github.com/JoelHT-Landmark/NuGet-PackageNPublish/blob/master/License.md</licenseUrl>
+    <copyright>Copyright 2016 Joel Hammond-Turner / Landmark Information Group Ltd</copyright>
     <language>en-us</language>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <developmentDependency>true</developmentDependency>
