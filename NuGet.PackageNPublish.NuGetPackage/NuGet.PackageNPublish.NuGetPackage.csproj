@@ -86,7 +86,7 @@
     <PreBuildEvent>attrib -R $(ProjectDir)_MSBuild\NuGetPackageAndPublish.targets
 attrib -R $(ProjectDir)Package\build\NuGet.PackageNPublish.targets
 attrib -R $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.tt.include
-attrib -R $(ProjectDir)Package\content\NuGetPackageAndPublish.tt.Example
+attrib -R $(ProjectDir)Package\content\YourProjectName.tt.Example
 
 copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets $(ProjectDir)_MSBuild\NuGetPackageAndPublish.targets
 copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets $(ProjectDir)Package\build\NuGet.PackageNPublish.targets
