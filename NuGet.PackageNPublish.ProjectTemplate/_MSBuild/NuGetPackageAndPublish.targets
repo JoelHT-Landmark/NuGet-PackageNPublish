@@ -14,8 +14,6 @@
 
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">$(MSBuildProjectDirectory)\..\</SolutionDir>
 
-    <NuGetToolsPath Condition="$(NuGetToolsPath) == '' Or $(NuGetToolsPath) == '*Undefined*'">$([System.IO.Path]::Combine($(SolutionDir), ".nuget"))</NuGetToolsPath>
-    <NuGetExePath Condition="$(NuGetExePath) == '' Or $(NuGetExePath) == '*Undefined*'">$(NuGetToolsPath)\nuget.exe</NuGetExePath>
     <PackagesConfig Condition="$(PackagesConfig) == '' Or $(PackagesConfig) == '*Undefined*'">$([System.IO.Path]::Combine($(ProjectDir), "packages.config"))</PackagesConfig>
     <PackagesDir Condition="$(PackagesDir) == '' Or $(PackagesDir) == '*Undefined*'">$([System.IO.Path]::Combine($(SolutionDir), "packages"))</PackagesDir>
   </PropertyGroup>
@@ -31,9 +29,18 @@
     <TTGenLocation Include="$(CommonProgramFiles(x86))\Microsoft Shared\TextTemplating" />
   </ItemGroup>
 
+  <ItemGroup>
+    <NuGetExeLocation Include="$(SolutionDir).nuget\" />
+
+    <NuGetExeLocationFiles Include="$(SolutionDir)Packages\NuGet.CommandLine.*\tools\*" />
+    <NuGetExeLocation Include="@(NuGetExeLocationFiles->'%(RootDir)%(Directory)'->Distinct())" />
+  </ItemGroup>
+
   <PropertyGroup>
-    <!--Find the TextTransform.exe helper -->
+
+    <!--Find the helpers -->
     <TTGenExe>TextTransform.exe</TTGenExe>
+    <NuGetExe>NuGet.exe</NuGetExe>
 
     <!--Find the tf.exe helper -->
     <TFPath Condition="($(TFPath) == '' Or $(TFPath) == '*Undefined*') And (Exists('$(MSBuildExtensionsPath)\..\Microsoft Visual Studio 10.0\Common7\IDE\tf.exe'))">$(MSBuildExtensionsPath)\..\Microsoft Visual Studio 10.0\Common7\IDE\tf.exe</TFPath>
@@ -95,6 +102,18 @@
     </Otherwise>
   </Choose>
 
+  <Target Name="LocateNuGetExe">
+
+    <Message Text="Looking in %(NuGetExeLocation.Identity) for $(NuGetExe)..." Importance="high" />
+
+    <PropertyGroup>
+      <NuGetExePath Condition="($(NuGetExePath) == '' Or $(NuGetExePath) == '*Undefined*') And (Exists('%(NuGetExeLocation.Identity)\$(NuGetExe)'))">%(NuGetExeLocation.Identity)\$(NuGetExe)</NuGetExePath>
+    </PropertyGroup>
+
+    <Message Text="$(NuGetExe) was found at $(NuGetExePath)"
+             Importance="high" />
+  </Target>
+
   <Target Name="LocateTTGenExe">
 
     <ItemGroup>
@@ -107,12 +126,12 @@
       <TTGenPath Condition="($(TTGenPath) == '' Or $(TTGenPath) == '*Undefined*') And (Exists('%(TTGenPaths.Path)\%(TTGenPaths.Identity)\$(TTGenExe)'))">%(TTGenPaths.Path)\%(TTGenPaths.Identity)\$(TTGenExe)</TTGenPath>
     </PropertyGroup>
 
-    <Message Text="TextTemplate.exe was found at $(TTGenPath)"
+    <Message Text="$(TTGenExe) was found at $(TTGenPath)"
              Importance="high" />
   </Target>
 
   <!-- Check all the pre-requisites are in place -->
-  <Target Name="CheckNuGetPackageAndPublishPrerequisites" DependsOnTargets="LocateTTGenExe">
+  <Target Name="CheckNuGetPackageAndPublishPrerequisites" DependsOnTargets="LocateTTGenExe;LocateNuGetExe">
 
     <!-- Raise an error if we're unable to locate nuget.exe  -->
     <Error Condition="!Exists('$(NuGetExePath)') and ($(CreateNuGetPackage) == 'true' or $(PublishNuGetPackage) == 'true')" Text="Unable to locate 'NuGet.exe'" />

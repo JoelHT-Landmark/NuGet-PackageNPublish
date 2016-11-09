@@ -9,13 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{31F89F4B
 		zip_license.html = zip_license.html
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{231AFD5D-678C-44A0-A8B1-8CD5A0717269}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\nuget.exe = .nuget\nuget.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet.PackageNPublish.ProjectTemplate", "NuGet.PackageNPublish.ProjectTemplate", "{A3D179B9-8199-4A8C-B276-5D132DD02095}"
 	ProjectSection(SolutionItems) = preProject
 		NuGet.PackageNPublish.ProjectTemplate\__TemplateIcon.jpg = NuGet.PackageNPublish.ProjectTemplate\__TemplateIcon.jpg

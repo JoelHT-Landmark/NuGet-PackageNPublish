@@ -58,7 +58,8 @@
       <LastGenOutput>NuGet.PackageNPublish.NuGetPackage.nuspec</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <None Include="Package\content\NuGetPackageAndPublish.tt.Example" />
+    <None Include="Package\build\NuGet.PackageNPublish.targets" />
+    <None Include="Package\content\YourProjectName.tt.Example" />
     <None Include="Package\content\_MSBuild\NuGetPackageAndPublish.targets" />
     <None Include="Package\content\_MSBuild\NuGetPackageAndPublish.tt.include" />
     <None Include="Package\lib\Net40\Net40.Readme.txt" />
@@ -67,6 +68,7 @@
     <None Include="Package\tools\install.ps1" />
     <None Include="Package\tools\uninstall.ps1" />
     <None Include="_MSBuild\NuGetPackageAndPublish.targets" />
+    <None Include="_MSBuild\NuGetPackageAndPublish.tt.include" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -77,16 +79,19 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!--<Import Project="$(SolutionDir)\.nuget\nuget.targets" />-->
   <Import Project="$(ProjectDir)\_MSBuild\NuGetPackageAndPublish.targets" />
   <Target Name="Publish" DependsOnTargets="Build;PublishNuGetPackage" />
   <PropertyGroup>
-    <PreBuildEvent>attrib -R $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.targets
+    <PreBuildEvent>attrib -R $(ProjectDir)_MSBuild\NuGetPackageAndPublish.targets
+attrib -R $(ProjectDir)Package\build\NuGet.PackageNPublish.targets
 attrib -R $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.tt.include
+attrib -R $(ProjectDir)Package\content\NuGetPackageAndPublish.tt.Example
 
-copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.targets
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets $(ProjectDir)_MSBuild\NuGetPackageAndPublish.targets
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets $(ProjectDir)Package\build\NuGet.PackageNPublish.targets
 copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.tt.include $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.tt.include
-copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.tt $(ProjectDir)Package\content\NuGetPackageAndPublish.tt.Example
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.tt $(ProjectDir)Package\content\YourProjectName.tt.Example
 </PreBuildEvent>
   </PropertyGroup>
 </Project>
