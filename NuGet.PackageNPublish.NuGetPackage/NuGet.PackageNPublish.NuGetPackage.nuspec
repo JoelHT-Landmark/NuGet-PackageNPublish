@@ -4,7 +4,7 @@
     <id>NuGet.PackageNPublish</id>
     <version>0.9.0.1</version>
     <title>NuGet.PackageNPublish</title>
-    <authors>Joel Hammond-Turner</authors>
+    <authors>Joel Hammond-Turner / Steve Grattan</authors>
     <summary></summary>
     <description>NuGet.PackageNPublish MSBuild targets file packaged as a NuGet package!</description>
     <language>en-us</language>

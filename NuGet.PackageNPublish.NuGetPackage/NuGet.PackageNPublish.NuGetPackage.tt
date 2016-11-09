@@ -28,7 +28,7 @@ var description = extract("AssemblyDescription");
     <id><#= packageId #></id>
     <version><#= fileVer #></version>
     <title><#= packageId #></title>
-    <authors>Joel Hammond-Turner</authors>
+    <authors>Joel Hammond-Turner / Steve Grattan</authors>
     <summary></summary>
     <description><#= description #></description>
     <language>en-us</language>

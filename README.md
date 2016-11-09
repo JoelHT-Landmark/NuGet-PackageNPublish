@@ -6,11 +6,19 @@ file to allow easier Package&#39;n&#39;Publish integration with TFS (or other CI
 It was presented at Developer! Developer! Developer! South West 4 ( http://www.dddsouthwest.com ) on 26th May 2012, and
 in an updated form at DDDNorth 2 ( http://developerdeveloperdeveloper.com/north2/ ) on 13th October 2012.
 
-## Changes for v0.7
+## Changes for v0.9
 
-- No longer automatically adds all references by default (See issues 3, 7 & 11 - https://github.com/JoelHT-Landmark/NuGet-PackageNPublish/issues )
-- Includes source for "parent" library package by default.
-- Updated to use NuGet v2.5 or above
+- Automatic CI builds now working in AppVeyor
+    - Including capturing the artifacts for deployment!
+- NuGet.PackageNPublish the package now no longer requires NuGet package restore (Issue #4)
+    - Also finds NuGet.exe and TextTemplate.exe automagically for all versions to VS2015 (Issue #14)
+- NuGet.PackageNPublish the package now adds a *works-out-of-the-box* templated NuSpec file - just rename it!
+- Template NuSpec now uses embedded C# classes to simplify them (Thanks to Steve Grattan) (Issue #25)
+    - Also doesn't include development dependencies (Issue #18)
+- NuGet.PackageNPublish the package is now a development dependency (Issue #18 ish)
+- Error message for missing TextTransform.exe is fixed (Issue #21)
+
+(See the [changelog](CHANGES.md) for more information)
 
 ## Requirements
 
@@ -20,10 +28,18 @@ in an updated form at DDDNorth 2 ( http://developerdeveloperdeveloper.com/north2
 
 ## Getting Started
 
+### Option 1 - Add NuGet packaging to a class library
+
+- Add the `NuGet.PackageNPublish` NuGet package to your class library
+
+- Rename the `YourProjectName.tt` file to match your project name!
+- Rebuild and watch as a NuGet package is created, including all your library's dependencies
+
+
+### Option 2 - Create a NuGet Packaging Project using the NuGet.Package'n'Publish extension
+
 There's a handy screencast demonstrating how to get started on YouTube:
 - http://www.youtube.com/watch?v=R6e4kV5dfIQ
-
-### How to create a NuGetPackage using the NuGet.Package'n'Publish extension
 
 - Install the extension into Visual Studio 
  - EITHER from a pre-built .visx file
@@ -59,13 +75,13 @@ There's a handy screencast demonstrating how to get started on YouTube:
 
 - You now have NuGet (.npkg) and a Symbols (.symbols.nupkg) packages built in your project directory!
 
-### How to publish a package using the NuGet.Package'n'Publish extension
+### How to publish a package
 
 - Build your solution with the **/p:PublishNuGetPackage=true** msbuild switch
  - To change the target repository from the default (http://nuget.org) use the **/p:PublishNuGetPackageTarget="http://myrepo.org"** switch
  - If you've not cached the API key for your custom repository, use the **/p:PublishNuGetPackageTargetKey="MySecretAPIKey"** switch
 
-### How to publish a Symbols package using the NuGet.Package'n'Publish extension
+### How to publish a Symbols package
 
 - Build your solution with the **/p:PublishSymbolPackage=true** msbuild switch
  - To change the target repository from the default (http://symbolsource.org) use the **/p:PublishSymbolPackageTarget="http://mysymbolserver.org"** switch
