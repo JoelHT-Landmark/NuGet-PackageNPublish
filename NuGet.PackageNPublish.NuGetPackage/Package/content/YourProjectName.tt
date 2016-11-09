@@ -38,9 +38,9 @@
     <id><#= pnp.Package.Id #></id>
     <version><#= pnp.Package.Version #></version>
     <title><#= pnp.Package.Title #></title>
-    <authors>$username$</authors>
+    <authors>YourNameHere</authors>
     <summary></summary>
-    <description><#= pnp.Package.Description #></description>
+    <description><#= pnp.Package.Title #> - <#= pnp.Package.Description #></description>
     <language>en-us</language>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
@@ -56,7 +56,10 @@
       Write("  <file src=\"..\\..\\" + pnp.Package.Id + "\\**\\*.cs\" target=\"src\\" + pnp.Package.Id + "\" " + 
             "exclude=\"..\\..\\" + pnp.Package.Id + "\\obj\\**\\*.cs\" />\n");
       #>
-      <file src="tools\**\*.*" target="tools" />
+	  <!--
+      <file src="build\**\*.*" target="build" />
       <file src="content\**\*.*" target="content" exclude="content\Content.Readme.txt" />
+      <file src="tools\**\*.*" target="tools" />
+	  -->
   </files>
 </package>

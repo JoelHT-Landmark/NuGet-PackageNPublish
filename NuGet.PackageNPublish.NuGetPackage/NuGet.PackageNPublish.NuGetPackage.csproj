@@ -59,7 +59,15 @@
     </None>
     <None Include="packages.config" />
     <None Include="Package\build\NuGet.PackageNPublish.targets" />
-    <None Include="Package\content\YourProjectName.tt.Example" />
+    <Content Include="Package\content\YourProjectName.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>YourProjectName.nuspec</LastGenOutput>
+    </Content>
+    <None Include="Package\content\YourProjectName.nuspec">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YourProjectName.tt</DependentUpon>
+    </None>
     <None Include="Package\content\_MSBuild\NuGetPackageAndPublish.targets" />
     <None Include="Package\content\_MSBuild\NuGetPackageAndPublish.tt.include" />
     <None Include="Package\lib\Net40\Net40.Readme.txt" />
@@ -86,12 +94,11 @@
     <PreBuildEvent>attrib -R $(ProjectDir)_MSBuild\NuGetPackageAndPublish.targets
 attrib -R $(ProjectDir)Package\build\NuGet.PackageNPublish.targets
 attrib -R $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.tt.include
-attrib -R $(ProjectDir)Package\content\YourProjectName.tt.Example
+attrib -R $(ProjectDir)Package\content\YourProjectName.tt
 
 copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets $(ProjectDir)_MSBuild\NuGetPackageAndPublish.targets
 copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets $(ProjectDir)Package\build\NuGet.PackageNPublish.targets
 copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.tt.include $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.tt.include
-copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.tt $(ProjectDir)Package\content\YourProjectName.tt.Example
-</PreBuildEvent>
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.tt $(ProjectDir)Package\content\YourProjectName.tt</PreBuildEvent>
   </PropertyGroup>
 </Project>
