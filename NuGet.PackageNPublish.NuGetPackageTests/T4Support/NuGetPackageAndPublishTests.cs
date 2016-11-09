@@ -9,6 +9,7 @@ namespace NuGet.PackageNPublish.NuGetPackageTests.T4Support
     public class NuGetPackageAndPublishTests
     {
         [TestMethod]
+        [Ignore]
         public void NuGetPackageAndPublishTest()
         {
             var hostDirectory = @"..\..\";
