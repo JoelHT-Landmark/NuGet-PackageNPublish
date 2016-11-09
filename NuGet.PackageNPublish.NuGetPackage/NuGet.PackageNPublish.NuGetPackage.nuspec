@@ -4,11 +4,14 @@
     <id>NuGet.PackageNPublish</id>
     <version>0.9.0.1</version>
     <title>NuGet.PackageNPublish</title>
-    <authors>Joel Hammond-Turner / Steve Grattan</authors>
-    <summary></summary>
-    <description>NuGet.PackageNPublish MSBuild targets file packaged as a NuGet package!</description>
+    <authors>Joel Hammond-Turner, Steve Grattan</authors>
+    <summary>NuGet.PackageNPublish MSBuild targets file packaged as a NuGet package!</summary>
+    <description>Templated NuSpec and packaging targets file to allow easier Package'n'Publish integration with TFS (or other CI) builds</description>
     <language>en-us</language>
+	<developmentDependency>true</developmentDependency>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+	<projectUrl>https://github.com/JoelHT-Landmark/NuGet-PackageNPublish</projectUrl>
+	<licenseUrl>https://github.com/JoelHT-Landmark/NuGet-PackageNPublish/blob/master/License.md</licenseUrl>
     <dependencies>
         <dependency id="NuGet.CommandLine" version="3.4.3" />
         </dependencies>
