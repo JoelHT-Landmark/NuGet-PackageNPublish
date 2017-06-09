@@ -4,8 +4,6 @@
 
   <PropertyGroup>
 
-    <PackageNPublishLocation Include="$(SolutionDir)\packages\NuGet.PackageNPublish.*\" />
-
     <RegenerateNuSpecFiles Condition="($(RegenerateNuSpecFiles) == '' Or $(RegenerateNuSpecFiles) == '*Undefined*')">true</RegenerateNuSpecFiles>
     <TfsCheckOut Condition="($(TfsCheckOut) == '' Or $(TfsCheckOut) == '*Undefined*')">true</TfsCheckOut>
 
@@ -19,6 +17,11 @@
     <PackagesConfig Condition="$(PackagesConfig) == '' Or $(PackagesConfig) == '*Undefined*'">$([System.IO.Path]::Combine($(ProjectDir), "packages.config"))</PackagesConfig>
     <PackagesDir Condition="$(PackagesDir) == '' Or $(PackagesDir) == '*Undefined*'">$([System.IO.Path]::Combine($(SolutionDir), "packages"))</PackagesDir>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PnPToolingLocationFiles Include="$(SolutionDir)Packages\NuGet.PackageNPublish.*\build\*" />
+    <PnPToolingLocation Include="@(PnPToolingLocationFiles->'%(RootDir)%(Directory)'->Distinct())" />
+  </ItemGroup>
 
   <ItemGroup>
     <VSVersion Include="15.0;14.0;13.0;12.0;11.0" />
@@ -104,6 +107,18 @@
     </Otherwise>
   </Choose>
 
+  <Target Name="LocatePackageNPublishTooling">
+    <Message Text="Looking in %(PnPToolingLocation.Identity) for PackageNPublish tooling..." Importance="high" />
+
+    <PropertyGroup>
+      <PnPToolingPath Condition="($(PnPToolingPath) == '' Or $(PnPToolingPath) == '*Undefined*') And (Exists('%(PnPToolingLocation.Identity)'))">%(PnPToolingLocation.Identity)</PnPToolingPath>
+    </PropertyGroup>
+
+    <Message Text="PackageNPublish Tooling was found at $(PnPToolingPath)"
+             Importance="high" />
+
+  </Target>
+
   <Target Name="LocateNuGetExe">
 
     <Message Text="Looking in %(NuGetExeLocation.Identity) for $(NuGetExe)..." Importance="high" />
@@ -133,13 +148,15 @@
   </Target>
 
   <!-- Check all the pre-requisites are in place -->
-  <Target Name="CheckNuGetPackageAndPublishPrerequisites" DependsOnTargets="LocateTTGenExe;LocateNuGetExe">
-
-    <Message Text="PackageNPublish tooling is installed in $(PackageNPublishLocation)" />
+  <Target Name="CheckNuGetPackageAndPublishPrerequisites" DependsOnTargets="LocateTTGenExe;LocateNuGetExe;LocatePackageNPublishTooling">
 
     <!-- Raise an error if we're unable to locate nuget.exe  -->
     <Error Condition="!Exists('$(NuGetExePath)') and ($(CreateNuGetPackage) == 'true' or $(PublishNuGetPackage) == 'true')" Text="Unable to locate 'NuGet.exe'" />
+
+    <!-- Raise an error if we're unable to locate TextTemplate.exe  -->
     <Error Condition="!Exists('$(TTGenPath)') and $(RegenerateNuSpecFiles) == 'true'" Text="Unable to locate '$(TTGenExe)' - install a VS-SDK or build with /p:RegenerateNuSpecFiles=false" />
+
+    <!-- Raise an warning if we're unable to locate Tf.exe  -->
     <Message Condition="!Exists('$(TFPath)') and $(TfsCheckOut) == 'true'" Text="Unable to locate 'Tf.exe' - install TFS client or build with /p:TfsCheckOut=false" />
   </Target>
 

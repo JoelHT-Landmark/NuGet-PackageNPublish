@@ -94,9 +94,9 @@ attrib -R $(ProjectDir)Package\build\NuGet.PackageNPublish.Tooling.t4
 attrib -R $(ProjectDir)Package\content\_MSBuild\NuGet.PackageNPublish.Tooling.t4
 attrib -R $(ProjectDir)Package\content\YourProjectName.tt
 
-copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet,PackageNdPublish.targets $(ProjectDir)Package\build\NuGet.PackageNPublish.targets
-copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet,PackageNPublish.Tooling.t4 $(ProjectDir)Package\build\NuGet.PackageNPublish.Tooling.t4
-copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet,PackageNPublish.Tooling.t4 $(ProjectDir)Package\content\_MSBuild\NuGet.PackageNPublish.Tooling.t4
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet.PackageNPublish.targets $(ProjectDir)Package\build\NuGet.PackageNPublish.targets
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet.PackageNPublish.Tooling.t4 $(ProjectDir)Package\build\NuGet.PackageNPublish.Tooling.t4
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet.PackageNPublish.Tooling.t4 $(ProjectDir)Package\content\_MSBuild\NuGet.PackageNPublish.Tooling.t4
 copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.tt $(ProjectDir)Package\content\YourProjectName.tt</PreBuildEvent>
   </PropertyGroup>
 </Project>

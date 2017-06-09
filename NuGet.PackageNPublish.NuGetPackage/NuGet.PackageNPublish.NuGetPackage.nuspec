@@ -2,7 +2,7 @@
 <package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>NuGet.PackageNPublish</id>
-    <version>0.9.0.1</version>
+    <version>0.10.0.0</version>
     <title>NuGet.PackageNPublish</title>
     <authors>Joel Hammond-Turner, Steve Grattan</authors>
     <summary>NuGet.PackageNPublish MSBuild targets file packaged as a NuGet package!</summary>
@@ -17,8 +17,6 @@
         </dependencies>
   </metadata>
   <files>
-      <file src="lib\**\*.dll" target="lib" />
-      <file src="lib\**\*.pdb" target="lib" />
 	  <file src="content\**" target="content" exclude="Content.Readme.txt" />
 	  <file src="build\**" target="build" />
 	  <file src="tools\**" target="tools" />

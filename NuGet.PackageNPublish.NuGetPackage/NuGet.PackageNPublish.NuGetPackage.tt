@@ -43,8 +43,6 @@ var description = extract("AssemblyDescription");
     </dependencies>
   </metadata>
   <files>
-      <file src="lib\**\*.dll" target="lib" />
-      <file src="lib\**\*.pdb" target="lib" />
 	  <file src="content\**" target="content" exclude="Content.Readme.txt" />
 	  <file src="build\**" target="build" />
 	  <file src="tools\**" target="tools" />
