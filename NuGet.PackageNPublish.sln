@@ -27,8 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_MSBuild", "_MSBuild", "{766F517F-12C7-4893-87FE-D355B4D3E5CA}"
 	ProjectSection(SolutionItems) = preProject
+		NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet.PackageNPublish.targets = NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet.PackageNPublish.targets
 		NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet.PackageNPublish.Tooling.t4 = NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet.PackageNPublish.Tooling.t4
-		NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageNPublish.targets = NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageNPublish.targets
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Package", "Package", "{C11F6C47-11CF-415A-85D8-591A800860A7}"
