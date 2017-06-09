@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{31F89F4B-36CF-4E9D-9BD2-89CA8314170E}"
 	ProjectSection(SolutionItems) = preProject
@@ -27,8 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_MSBuild", "_MSBuild", "{766F517F-12C7-4893-87FE-D355B4D3E5CA}"
 	ProjectSection(SolutionItems) = preProject
-		NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets = NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets
-		NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.tt.include = NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.tt.include
+		NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet.PackageNPublish.Tooling.t4 = NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet.PackageNPublish.Tooling.t4
+		NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageNPublish.targets = NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageNPublish.targets
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Package", "Package", "{C11F6C47-11CF-415A-85D8-591A800860A7}"

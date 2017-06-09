@@ -122,4 +122,5 @@ UpgradeLog*.XML
 # NuGet
 packages/
 
+# Build output
 .DS_Store

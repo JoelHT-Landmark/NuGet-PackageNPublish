@@ -58,6 +58,7 @@
       <LastGenOutput>NuGet.PackageNPublish.NuGetPackage.nuspec</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Package\build\NuGet.PackageNPublish.Tooling.t4" />
     <None Include="Package\build\NuGet.PackageNPublish.targets" />
     <Content Include="Package\content\YourProjectName.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -68,15 +69,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>YourProjectName.tt</DependentUpon>
     </None>
-    <None Include="Package\content\_MSBuild\NuGetPackageAndPublish.targets" />
-    <None Include="Package\content\_MSBuild\NuGetPackageAndPublish.tt.include" />
+    <None Include="Package\content\_MSBuild\NuGet.PackageNPublish.Tooling.t4" />
     <None Include="Package\lib\Net40\Net40.Readme.txt" />
     <None Include="Package\lib\SL40\SL40.Readme.txt" />
     <None Include="Package\tools\init.ps1" />
     <None Include="Package\tools\install.ps1" />
     <None Include="Package\tools\uninstall.ps1" />
-    <None Include="_MSBuild\NuGetPackageAndPublish.targets" />
-    <None Include="_MSBuild\NuGetPackageAndPublish.tt.include" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -91,14 +89,14 @@
   <Import Project="$(ProjectDir)\_MSBuild\NuGetPackageAndPublish.targets" />
   <Target Name="Publish" DependsOnTargets="Build;PublishNuGetPackage" />
   <PropertyGroup>
-    <PreBuildEvent>attrib -R $(ProjectDir)_MSBuild\NuGetPackageAndPublish.targets
-attrib -R $(ProjectDir)Package\build\NuGet.PackageNPublish.targets
-attrib -R $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.tt.include
+    <PreBuildEvent>attrib -R $(ProjectDir)Package\build\NuGet.PackageNPublish.targets
+attrib -R $(ProjectDir)Package\build\NuGet.PackageNPublish.Tooling.t4
+attrib -R $(ProjectDir)Package\content\_MSBuild\NuGet.PackageNPublish.Tooling.t4
 attrib -R $(ProjectDir)Package\content\YourProjectName.tt
 
-copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets $(ProjectDir)_MSBuild\NuGetPackageAndPublish.targets
-copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets $(ProjectDir)Package\build\NuGet.PackageNPublish.targets
-copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.tt.include $(ProjectDir)Package\content\_MSBuild\NuGetPackageAndPublish.tt.include
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet,PackageNdPublish.targets $(ProjectDir)Package\build\NuGet.PackageNPublish.targets
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet,PackageNPublish.Tooling.t4 $(ProjectDir)Package\build\NuGet.PackageNPublish.Tooling.t4
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet,PackageNPublish.Tooling.t4 $(ProjectDir)Package\content\_MSBuild\NuGet.PackageNPublish.Tooling.t4
 copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\Project.NuGetPackage.tt $(ProjectDir)Package\content\YourProjectName.tt</PreBuildEvent>
   </PropertyGroup>
 </Project>
