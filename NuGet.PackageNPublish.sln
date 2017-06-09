@@ -1,19 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{31F89F4B-36CF-4E9D-9BD2-89CA8314170E}"
 	ProjectSection(SolutionItems) = preProject
 		Tools\zip.exe = Tools\zip.exe
 		zip_license.html = zip_license.html
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{231AFD5D-678C-44A0-A8B1-8CD5A0717269}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\nuget.exe = .nuget\nuget.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet.PackageNPublish.ProjectTemplate", "NuGet.PackageNPublish.ProjectTemplate", "{A3D179B9-8199-4A8C-B276-5D132DD02095}"
@@ -35,6 +28,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_MSBuild", "_MSBuild", "{766F517F-12C7-4893-87FE-D355B4D3E5CA}"
 	ProjectSection(SolutionItems) = preProject
 		NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets = NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets
+		NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.tt.include = NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.tt.include
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Package", "Package", "{C11F6C47-11CF-415A-85D8-591A800860A7}"
@@ -65,6 +59,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SL40", "SL40", "{B98B618C-B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3F2AABCE-8D28-4A43-A26F-A786BB2666F7}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		CHANGES.md = CHANGES.md
+		License.md = License.md
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -74,6 +71,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.PackageNPublish.VS201
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.PackageNPublish.NuGetPackage", "NuGet.PackageNPublish.NuGetPackage\NuGet.PackageNPublish.NuGetPackage.csproj", "{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.PackageNPublish.NuGetPackageTests", "NuGet.PackageNPublish.NuGetPackageTests\NuGet.PackageNPublish.NuGetPackageTests.csproj", "{B1767FB6-7594-4879-A728-6522B75AD4FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +88,10 @@ Global
 		{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D02A192-1FB0-46CF-9736-9FD6F2A5EFBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1767FB6-7594-4879-A728-6522B75AD4FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1767FB6-7594-4879-A728-6522B75AD4FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1767FB6-7594-4879-A728-6522B75AD4FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1767FB6-7594-4879-A728-6522B75AD4FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

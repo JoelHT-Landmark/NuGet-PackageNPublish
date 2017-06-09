@@ -1,0 +1,47 @@
+﻿<#
+/*
+	Amend this template as you see fit. The bare minumum you need is an instance of the class NuGetPackageAndPublish:
+
+		var pnp = new NuGetPackageAndPublish(Host.ResolvePath("."));
+
+	The following properties then become available to your template:
+	
+		pnp.Project.Name
+
+		pnp.Assembly.Title
+		pnp.Assembly.Description
+		pnp.Assembly.Version
+		pnp.Assembly.FileVersion
+		pnp.Assembly.InformationalVersion
+	
+		pnp.Package.Id
+		pnp.Package.Title
+		pnp.Package.Description
+		pnp.Package.Version
+		pnp.Package.Dependencies
+*/
+#>
+<#@ template debug="false" hostspecific="true" language="C#"
+#><#@ output extension=".nuspec"
+#><#@ include file=".\_MSBuild\NuGetPackageAndPublish.tt.include" once="true"
+#><#
+    var pnp = new NuGetPackageAndPublish(Host.ResolvePath("."));
+#>
+<?xml version="1.0" encoding="utf-8" ?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id><#= pnp.Package.Id #></id>
+    <version><#= pnp.Package.Version #></version>
+    <title><#= pnp.Package.Title #></title>
+    <authors>keyedit</authors>
+    <summary></summary>
+	<description>A test nuspec</description>
+    <language>en-us</language>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <dependencies>
+    <# foreach (var package in pnp.Package.Dependencies) { #>
+        <dependency <#= package.Attribute("id") #> <#= package.Attribute("version") #> />
+    <# } #>
+  </dependencies>
+  </metadata>
+</package>
