@@ -5,7 +5,7 @@
   <PropertyGroup>
 
     <RegenerateNuSpecFiles Condition="($(RegenerateNuSpecFiles) == '' Or $(RegenerateNuSpecFiles) == '*Undefined*')">true</RegenerateNuSpecFiles>
-    <TfsCheckOut Condition="($(TfsCheckOut) == '' Or $(TfsCheckOut) == '*Undefined*')">true</TfsCheckOut>
+    <TfsCheckOut Condition="($(TfsCheckOut) == '' Or $(TfsCheckOut) == '*Undefined*')">false</TfsCheckOut>
 
     <CreateNuGetPackage Condition="$(CreateNuGetPackage) == ''">true</CreateNuGetPackage>
     <PublishNuGetPackage Condition="$(PublishNuGetPackage) == ''">false</PublishNuGetPackage>
