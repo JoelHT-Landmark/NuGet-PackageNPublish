@@ -14,17 +14,11 @@ in an updated form at DDDNorth 2 ( http://developerdeveloperdeveloper.com/north2
 | AppVeyor | [![Build status](https://ci.appveyor.com/api/projects/status/5pgdecx34ipxi0tc?svg=true)](https://ci.appveyor.com/project/JoelHT-Landmark/nuget-packagenpublish) |
 
 
-## Changes for v0.9
+## Changes for v0.10
 
-- Automatic CI builds now working in AppVeyor
-    - Including capturing the artifacts for deployment!
-- NuGet.PackageNPublish the package now no longer requires NuGet package restore (Issue #4)
-    - Also finds NuGet.exe and TextTemplate.exe automagically for all versions to VS2015 (Issue #14)
-- NuGet.PackageNPublish the package now adds a *works-out-of-the-box* templated NuSpec file - just rename it!
-- Template NuSpec now uses embedded C# classes to simplify them (Thanks to Steve Grattan) (Issue #25)
-    - Also doesn't include development dependencies (Issue #18)
-- NuGet.PackageNPublish the package is now a development dependency (Issue #18 ish)
-- Error message for missing TextTransform.exe is fixed (Issue #21)
+- Visual Studio 2017 now supported by the nuget package (Issue #27)
+  - How the tooling finds `NuGet.exe` and `TextTemplate.exe` was changed (again) to support the new (random) location for the latter.
+- Tooling no longer tries to locate `tf.exe` and checkout using *TFS* by default (Issue #22)
 
 (See the [changelog](CHANGES.md) for more information)
 
