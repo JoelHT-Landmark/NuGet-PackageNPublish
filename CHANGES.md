@@ -1,5 +1,11 @@
 # Change History
 
+## Changes for v0.10
+
+- Visual Studio 2017 now supported by the nuget package (Issue #27)
+  - How the tooling finds `NuGet.exe` and `TextTemplate.exe` was changed (again) to support the new (random) location for the latter.
+- Tooling no longer tries to locate `tf.exe` and checkout using *TFS* by default (Issue #22)
+
 ## Changes for v0.9
 
 - Automatic CI builds now working in AppVeyor
