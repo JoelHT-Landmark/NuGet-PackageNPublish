@@ -76,8 +76,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>T4NuSpecTest.tt</DependentUpon>
     </None>
-    <None Include="_MSBuild\NuGetPackageAndPublish.targets" />
-    <None Include="_MSBuild\NuGetPackageAndPublish.tt.include" />
+    <None Include="_MSBuild\NuGet.PackageNPublish.targets" />
+    <None Include="_MSBuild\NuGet.PackageNPublish.Tooling.t4" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -118,11 +118,11 @@
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>attrib -R $(ProjectDir)_MSBuild\NuGetPackageAndPublish.targets
-attrib -R $(ProjectDir)_MSBuild\NuGetPackageAndPublish.tt.include
+    <PreBuildEvent>attrib -R $(ProjectDir)_MSBuild\NuGet.PackageNPublish.targets
+attrib -R $(ProjectDir)_MSBuild\NuGet.PackageNPublish.Tooling.t4
 
-copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.targets $(ProjectDir)_MSBuild\NuGetPackageAndPublish.targets
-copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGetPackageAndPublish.tt.include $(ProjectDir)_MSBuild\NuGetPackageAndPublish.tt.include
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet.PackageNPublish.targets $(ProjectDir)_MSBuild\NuGet.PackageNPublish.targets
+copy $(SolutionDir)NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet.PackageNPublish.Tooling.t4 $(ProjectDir)_MSBuild\NuGet.PackageNPublish.Tooling.t4
 </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

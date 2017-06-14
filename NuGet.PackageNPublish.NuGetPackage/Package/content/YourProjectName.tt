@@ -28,7 +28,7 @@
 #>
 <#@ template debug="false" hostspecific="true" language="C#"
 #><#@ output extension=".nuspec"
-#><#@ include file=".\_MSBuild\NuGetPackageAndPublish.tt.include" once="true"
+#><#@ include file=".\_MSBuild\NuGet.PackageNPublish.Tooling.t4" once="true"
 #><#
     var pnp = new NuGetPackageAndPublish(Host.ResolvePath("."));
 #>
