@@ -85,7 +85,12 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!--<Import Project="$(SolutionDir)\.nuget\nuget.targets" />-->
+
+  <!-- we don't want to automatically regen the NuSpec on build for THIS project! :) -->
+  <PropertyGroup>
+    <RegenerateNuSpecFiles>false</RegenerateNuSpecFiles>
+  </PropertyGroup>
+  
   <Import Project="$(SolutionDir)\NuGet.PackageNPublish.ProjectTemplate\_MSBuild\NuGet.PackageNPublish.targets" />
   <Target Name="Publish" DependsOnTargets="Build;PublishNuGetPackage" />
   <PropertyGroup>
