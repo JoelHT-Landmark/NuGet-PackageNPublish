@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!--NuGetPackageAndPublish.targets v0.9.0.1 - See https://github.com/JoelHT-Landmark/NuGet-PackageNPublish for more information -->
+<!--NuGetPackageAndPublish.targets v0.10.1.0 - See https://github.com/JoelHT-Landmark/NuGet-PackageNPublish for more information -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
@@ -11,6 +11,8 @@
     <PublishNuGetPackage Condition="$(PublishNuGetPackage) == ''">false</PublishNuGetPackage>
     <CreateSymbolPackage Condition="$(CreateSymbolPackage) == ''">true</CreateSymbolPackage>
     <PublishSymbolPackage Condition="$(PublishSymbolPackage) == ''">false</PublishSymbolPackage>
+
+    <DisplayPackageNPublishDiagnostics Condition="$(DisplayPackageNPublishDiagnostics) == ''">false</DisplayPackageNPublishDiagnostics>
 
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">$(MSBuildProjectDirectory)\..\</SolutionDir>
 
@@ -62,8 +64,12 @@
     <PublishSymbolPackageTarget Condition="$(PublishSymbolPackageTarget) == '' Or $(PublishSymbolPackageTarget) == '*Undefined*'">http://symbolsource.org/</PublishSymbolPackageTarget>
     <PublishSymbolPackageTargetKey Condition="$(PublishSymbolPackageTargetKey) == '' Or $(PublishSymbolPackageTargetKey) == '*Undefined*'"></PublishSymbolPackageTargetKey>
 
-    <BuildDependsOn Condition="$(CreateNuGetPackage) == 'true'">
+    <BuildDependsOn Condition="$(RegenerateNuSpecFiles) == 'true'">
       GenerateNuSpecFiles;
+      $(BuildDependsOn);
+    </BuildDependsOn>
+
+    <BuildDependsOn Condition="$(CreateNuGetPackage) == 'true'">
       $(BuildDependsOn);
       CreateNuGetPackage;
       CopyPackageToDropLocation;
@@ -167,6 +173,21 @@
     </GetAssemblyIdentity>
   </Target>
 
+  <Target Name="DisplayPnPSettings" 
+          DependsOnTargets="CheckNuGetPackageAndPublishPrerequisites" 
+          Condition="DisplayPackageNPublishDiagnostics == 'true'">
+    <Message Text="RegenerateNuSpecFiles: $(RegenerateNuSpecFiles)" Importance="High" />
+    <Message Text="TfsCheckOut:           $(TfsCheckOut)" Importance="High" />
+    <Message Text="CreateNuGetPackage:    $(CreateNuGetPackage)" Importance="High" />
+    <Message Text="PublishNuGetPackage:   $(PublishNuGetPackage)" Importance="High" />
+    <Message Text="CreateSymbolPackage:   $(CreateSymbolPackage)" Importance="High" />
+    <Message Text="PublishSymbolPackage:  $(PublishSymbolPackage)" Importance="High" />
+    <Message Text="PnPToolingPath:        $(PnPToolingPath)" Importance="High" />
+    <Message Text="NuGetExePath:          $(NuGetExePath)" Importance="High" />
+    <Message Text="TTGenPath:             $(TTGenPath)" Importance="High" />
+    <Message Text="NuSpecTemplateFiles:   %(NuSpecTemplateFiles.FullPath)" Importance="High" />
+  </Target>
+  
   <!-- write the version info out to an xml file for use by powershell scrips, etc -->
   <Target Name="WriteVersionsFile" DependsOnTargets="ExtractVersionInfo">
     <ItemGroup>
@@ -210,7 +231,9 @@
     <Exec ContinueOnError="true" Command="&quot;$(TFPath)&quot; checkout &quot;%(NuSpecFiles.FullPath)&quot;" Condition="($(SccProvider) == 'SAK')" />
   </Target>
 
-  <Target Name="GenerateNuSpecFiles" DependsOnTargets="CheckNuGetPackageAndPublishPrerequisites;CheckOutNuSpecFiles" Condition="@(NuSpecTemplateFiles) != '' and Exists('$(TTGenPath)') and $(RegenerateNuSpecFiles) == 'true'">
+  <Target Name="GenerateNuSpecFiles" DependsOnTargets="CheckNuGetPackageAndPublishPrerequisites;CheckOutNuSpecFiles" 
+          Condition="$(RegenerateNuSpecFiles) == 'true'">
+    <Message Text="Regenerating nuspec from %(NuSpecTemplateFiles.FullPath)" Importance="High" />
     <Exec ContinueOnError="true" Command="attrib -r &quot;%(NuSpecFiles.FullPath)&quot;" />
     <Exec Command="&quot;$(TTGenPath)&quot; &quot;%(NuSpecTemplateFiles.FullPath)&quot;" />
   </Target>
