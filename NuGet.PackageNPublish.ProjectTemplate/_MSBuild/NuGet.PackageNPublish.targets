@@ -64,7 +64,7 @@
     <PublishSymbolPackageTarget Condition="$(PublishSymbolPackageTarget) == '' Or $(PublishSymbolPackageTarget) == '*Undefined*'">http://symbolsource.org/</PublishSymbolPackageTarget>
     <PublishSymbolPackageTargetKey Condition="$(PublishSymbolPackageTargetKey) == '' Or $(PublishSymbolPackageTargetKey) == '*Undefined*'"></PublishSymbolPackageTargetKey>
 
-    <BuildDependsOn Condition="$(CreateNuGetPackage) == 'RegenerateNuSpecFiles'">
+    <BuildDependsOn Condition="$(RegenerateNuSpecFiles) == 'true'">
       GenerateNuSpecFiles;
       $(BuildDependsOn);
     </BuildDependsOn>
